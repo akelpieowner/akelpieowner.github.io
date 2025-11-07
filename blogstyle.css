@@ -2,17 +2,34 @@
 body {
   background: url('images/background.png') no-repeat center center fixed;
   background-size: cover;
+  color: white;
+  font-family: Georgia, serif;
+  line-height: 1.7;
+  margin: 0;
+  cursor: default; /* ensures mouse pointer is visible */
 }
+
+/* Content Wrapper */
 .content-wrapper {
-  background: rgba(255, 255, 255, 0.9); /* semi-transparent white */
-  padding: 40px 20px;
   max-width: 800px;
-  margin: auto;
+  margin: 60px 0 0 40%; /* leaning right */
+  padding: 20px;
+  background: transparent; /* no white column */
+}
+
+/* Section Styling */
+section {
+  padding: 80px 20px;
+  margin-top: 60px;
+  background: transparent; /* remove semi-transparent gray */
+  border: none;
+  border-radius: 0;
+  backdrop-filter: none;
 }
 
 /* Navigation Bar */
 nav {
-    background: rgba(90, 90, 90, 0.9); /* Atmospheric grey with slight transparency */
+    background: transparent;
     padding: 15px;
     position: fixed;
     width: 100%;
@@ -21,37 +38,18 @@ nav {
     z-index: 1000;
 }
 
-nav ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-nav ul li {
-    display: inline;
-    margin: 0 15px;
-}
-
 nav ul li a {
-    color: #f0e6d2; /* Warm beige tone for contrast */
+    color: white;
     text-decoration: none;
-    font-size: 18px;
-    font-weight: bold;
-    transition: color 0.3s ease-in-out;
 }
 
-nav ul li a:hover {
-    color: #d4c2a8; /* Softer beige on hover */
-}
-
-/* Section Styling */
-section {
-    padding: 80px 20px;
-    margin-top: 60px;
-    background: rgba(220, 220, 220, 0.5); /* Soft atmospheric grey */
-    border-bottom: 1px solid #ccc;
-    border-radius: 10px;
-    backdrop-filter: blur(5px);
+/* Footer */
+footer {
+    background: transparent;
+    color: white;
+    text-align: left;
+    padding: 20px 0;
+    margin-top: 20px;
 }
 
 /* Smooth Scrolling */
@@ -59,70 +57,14 @@ html {
     scroll-behavior: smooth;
 }
 
-/* Footer with Logo */
-footer {
-    background: rgba(90, 90, 90, 0.9); /* Consistent atmospheric grey */
-    color: white;
-    text-align: center;
-    padding: 20px 0;
-    margin-top: 20px;
-}
-
-.logo {
-    width: 120px;
-    display: block;
-    margin: 10px auto;
-    filter: grayscale(30%); /* Gives it a muted, aesthetic look */
-}
-
 /* Responsive Design */
 @media (max-width: 768px) {
+    .content-wrapper {
+        margin-left: 20%;
+        padding: 15px;
+    }
     nav ul li {
         display: block;
         margin: 10px 0;
     }
-}
-/* Custom Cursor */
-/* Hide default cursor */
-body {
-    cursor: none;
-}
-
-/* Custom Cursor */
-#cursor {
-    position: fixed;
-    width: 12px;
-    height: 12px;
-    background: rgba(200, 200, 200, 0.8); /* Soft grey-white sphere */
-    border-radius: 50%;
-    pointer-events: none;
-    transform: translate(-50%, -50%);
-    transition: transform 0.1s ease-out, width 0.1s ease-out, height 0.1s ease-out;
-    z-index: 9999;
-}
-
-/* Pulsating Contour Effect on Click */
-#cursor-click {
-    position: fixed;
-    width: 20px;
-    height: 20px;
-    border: 2px solid rgba(200, 200, 200, 0.5); /* Thin pulsating contour */
-    border-radius: 50%;
-    pointer-events: none;
-    transform: translate(-50%, -50%) scale(0);
-    opacity: 0;
-    transition: transform 0.4s ease-out, opacity 0.4s ease-out;
-    z-index: 9998;
-}
-
-/* Cursor expands slightly when moving */
-body:hover #cursor {
-    width: 16px;
-    height: 16px;
-}
-
-/* Cursor grows when clicking */
-.click-effect {
-    transform: translate(-50%, -50%) scale(1.5);
-    opacity: 1;
 }
