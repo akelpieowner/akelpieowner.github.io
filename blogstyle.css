@@ -1,15 +1,13 @@
-/* General Styles */
 body {
+  margin: 0;
+  font-family: Georgia, serif;
   background: url('images/background.png') no-repeat center center fixed;
   background-size: cover;
   color: white;
-  font-family: Georgia, serif;
   line-height: 1.7;
-  margin: 0;
-  cursor: default; /* ensures mouse pointer is visible */
+  cursor: default; /* makes mouse pointer visible */
 }
 
-/* Content Wrapper */
 .content-wrapper {
   max-width: 800px;
   margin: 60px 0 0 40%; /* leaning right */
@@ -17,54 +15,17 @@ body {
   background: transparent; /* no white column */
 }
 
-/* Section Styling */
 section {
-  padding: 80px 20px;
+  padding: 60px 20px;
   margin-top: 60px;
-  background: transparent; /* remove semi-transparent gray */
+  background: transparent; /* remove any color */
   border: none;
-  border-radius: 0;
-  backdrop-filter: none;
 }
 
-/* Navigation Bar */
-nav {
-    background: transparent;
-    padding: 15px;
-    position: fixed;
-    width: 100%;
-    top: 0;
-    left: 0;
-    z-index: 1000;
+header h1, header .meta, p, blockquote, nav a, footer {
+  color: white; /* all text in white */
 }
 
-nav ul li a {
-    color: white;
-    text-decoration: none;
-}
-
-/* Footer */
-footer {
-    background: transparent;
-    color: white;
-    text-align: left;
-    padding: 20px 0;
-    margin-top: 20px;
-}
-
-/* Smooth Scrolling */
-html {
-    scroll-behavior: smooth;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    .content-wrapper {
-        margin-left: 20%;
-        padding: 15px;
-    }
-    nav ul li {
-        display: block;
-        margin: 10px 0;
-    }
+nav, footer {
+  background: transparent; /* remove colored bars */
 }
