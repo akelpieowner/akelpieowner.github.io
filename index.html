@@ -13,18 +13,38 @@
       color: white;
       line-height: 1.7;
       cursor: default;
-      scroll-behavior: smooth; /* smooth scrolling */
+      scroll-behavior: smooth;
+    }
+
+    /* Button at top */
+    .top-button {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      padding: 12px 20px;
+      background: rgba(0,0,0,0.6);
+      border: 2px solid white;
+      border-radius: 8px;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      text-decoration: none;
+      z-index: 1001;
+      transition: background 0.3s;
+    }
+
+    .top-button:hover {
+      background: rgba(255,255,255,0.2);
     }
 
     .content-wrapper {
       max-width: 800px;
-      margin: 60px 0 0 40%; /* leaning right */
+      margin: 60px 0 0 40%;
       padding: 20px;
       background: transparent;
       position: relative;
     }
 
-    /* Quote of the Month box */
     .quote-box {
       position: fixed;
       top: 120px;
@@ -68,12 +88,14 @@
         padding: 15px;
       }
       .quote-box {
-        display: none; /* hide quote box on small screens */
+        display: none;
       }
     }
   </style>
 </head>
 <body>
+
+  <a href="empty.html" class="top-button">Open Empty Page</a>
 
   <div class="quote-box">
     "Quote of the month goes here."
@@ -133,7 +155,7 @@
         <p><!-- Insert conclusion text here --></p>
       </section>
 
-      <p><a href="https://akelpieowner.github.io/" target="_blank"> Give feedback, thoughts, ideas. ↗</a></p>
+      <p><a href="https://akelpieowner.github.io/" target="_blank">Read the full essay on the original site ↗</a></p>
     </main>
 
     <footer>
