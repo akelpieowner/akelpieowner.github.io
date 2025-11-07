@@ -13,17 +13,33 @@
       color: white;
       line-height: 1.7;
       cursor: default;
+      scroll-behavior: smooth; /* smooth scrolling */
     }
 
     .content-wrapper {
       max-width: 800px;
       margin: 60px 0 0 40%; /* leaning right */
       padding: 20px;
-      background: transparent; /* no white column */
+      background: transparent;
+      position: relative;
+    }
+
+    /* Quote of the Month box */
+    .quote-box {
+      position: fixed;
+      top: 120px;
+      left: 20px;
+      width: 200px;
+      padding: 15px;
+      border: 2px solid rgba(255,255,255,0.7);
+      border-radius: 8px;
+      background: rgba(0,0,0,0.4);
+      font-style: italic;
+      color: white;
     }
 
     header h1, header .meta, p, blockquote, nav a, footer {
-      color: white; /* all text in white */
+      color: white;
     }
 
     section {
@@ -51,10 +67,17 @@
         margin-left: 20%;
         padding: 15px;
       }
+      .quote-box {
+        display: none; /* hide quote box on small screens */
+      }
     }
   </style>
 </head>
 <body>
+
+  <div class="quote-box">
+    "Quote of the month goes here."
+  </div>
 
   <div class="content-wrapper">
     <header>
@@ -110,7 +133,7 @@
         <p><!-- Insert conclusion text here --></p>
       </section>
 
-      <p><a href="https://akelpieowner.github.io/" target="_blank">__GIVE FEEDBACK__</a></p>
+      <p><a href="https://akelpieowner.github.io/" target="_blank"> Give feedback, thoughts, ideas. ↗</a></p>
     </main>
 
     <footer>
