@@ -1,110 +1,56 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <title>A passer-by’s guide to reality</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <style>
-    :root {
-      --zima-blue: #66ccff;
-      --bg-grey: #f0f2f5;
-      --text-dark: #1a1a1a;
-      --meta-grey: #555;
-    }
     body {
       margin: 0;
       font-family: Georgia, serif;
-      background: var(--bg-grey);
-      color: var(--text-dark);
-      line-height: 1.6;
+      background: url('images/background.png') no-repeat center center fixed;
+      background-size: cover;
+      color: white;
+      line-height: 1.7;
+      cursor: default;
     }
+
     .content-wrapper {
-      max-width: 700px;
-      margin: auto;
-      padding: 40px 20px;
-      background: #fff;
+      max-width: 800px;
+      margin: 60px 0 0 40%; /* leaning right */
+      padding: 20px;
+      background: transparent; /* no white column */
     }
-    header {
-      text-align: center;
-      margin-bottom: 40px;
+
+    header h1, header .meta, p, blockquote, nav a, footer {
+      color: white; /* all text in white */
     }
-    header h1 {
-      font-size: 2.75rem;
-      margin: 0;
-      color: var(--text-dark);
+
+    section {
+      padding: 60px 20px;
+      margin-top: 60px;
+      background: transparent;
+      border: none;
     }
-    header .meta {
-      margin-top: 8px;
-      color: var(--meta-grey);
-      font-size: 0.95rem;
+
+    nav, footer {
+      background: transparent;
     }
-    .intro {
-      margin-bottom: 30px;
-      font-size: 1.05rem;
-    }
-    .intro p:first-child {
-      margin-top: 0;
-    }
-    .intro p + blockquote {
-      margin-top: 1.5em;
-    }
-    nav.toc {
-      margin-bottom: 40px;
-      font-size: 0.95rem;
-      border-top: 1px solid #ddd;
-      border-bottom: 1px solid #ddd;
-      padding: 10px 0;
-    }
-    nav.toc a {
-      color: var(--zima-blue);
+
+    nav a {
+      color: white;
       text-decoration: none;
     }
-    nav.toc a:hover {
-      text-decoration: underline;
+
+    html {
+      scroll-behavior: smooth;
     }
-    nav.toc ul {
-      list-style: none;
-      padding-left: 0;
-      margin: 8px 0 0 0;
-    }
-    nav.toc li {
-      margin: 6px 0;
-    }
-    section {
-      margin-bottom: 40px;
-    }
-    section h2 {
-      font-size: 1.75rem;
-      margin-bottom: 10px;
-      color: var(--zima-blue);
-      border-bottom: 2px solid var(--zima-blue);
-      padding-bottom: 4px;
-    }
-    p {
-      margin: 1em 0;
-    }
-    blockquote {
-      margin: 1.5em 0;
-      padding: 0.8em 1.2em;
-      border-left: 4px solid var(--zima-blue);
-      background: #f7fbff;
-      color: var(--meta-grey);
-      font-style: italic;
-    }
-    footer {
-      text-align: center;
-      margin-top: 60px;
-      padding-top: 30px;
-      border-top: 1px solid #ddd;
-      color: var(--meta-grey);
-      font-size: 0.85rem;
-    }
-    a {
-      color: var(--zima-blue);
-    }
-    a:hover {
-      text-decoration: underline;
+
+    @media (max-width: 768px) {
+      .content-wrapper {
+        margin-left: 20%;
+        padding: 15px;
+      }
     }
   </style>
 </head>
@@ -137,15 +83,7 @@
     <main>
       <section id="assumptions">
         <h2> Why this blog exists </h2>
-        <p> A passer-by’s guide to reality; a new frontier of growth and our role in it
-A definite, transactional and finite endeavour. Discomfort is a given.
-
-I have been planning to write this “guide” of sorts as part of my own arsenal of reminders that life is something we should enjoy and master all its facets. I will seek to argue to maintain a healthy balance of your biological self and physical reality in the midst of the everything cyber trends that is coming. The forthcoming wave tracks what you see, how long you see it and where. Sees what you buy, for how much and from where. Sees where you are with whom and what you do. Aims to draw conclusions based on such metrics and turn you into its product. Now I know the idea is wild… but if you tried to *metrify* yourself and established a faithful, realistic pattern based on which you can provide meaning, guidance and direction in your life? How would that make You feel? I don’t intend to say “let’s escape modernity and tech”, but fully embracing it is not the way to go, in my honest opinion. 
-I advise that you make notes, reflect on your life and read through this, chapter by chapter as each chapter builds on the previous one. Do not feel frustrated, ignore that life is unfair and it is much better to build on what you have instead of grinding yourself to pieces in a mental battle. Also, please bear in mind that an easy-loose lifestyle likely leads to happiness or satisfaction (fulfilment) and hence, challenge yourself. 
-Some of my points need scientific justification so as to not just make this an empty talk, however I am not always going to coin scientific terms as that would make reading this text pretentious and pathetic. In this understanding, think of science as a means to prove that something works, something is commonly agreed upon and not just a means to describe something.
-Also, one of the things we can confidently trust in life is science in especial natural sciences. The solid, known foundations of our physical reality are set and cannot be changed – as per our best knowledge, at the time of writing this – and we all play by the same rules. One body, one life. But we get to have countless decisions to make most of this one body and this one life…
-
- </p>
+        <p> <!-- Your text content here --> </p>
       </section>
       <section id="biology">
         <h2>1. Making sense & life's true metrics: energy, frequency, vibration, scarcity </h2>
@@ -169,10 +107,10 @@ Also, one of the things we can confidently trust in life is science in especial 
       </section>
       <section id="work">
         <h2>5. "The world you desire can be won." </h2>
-        <p><!-- Insert work & meaning text here --></p>
+        <p><!-- Insert conclusion text here --></p>
       </section>
 
-      <p><a href="https://akelpieowner.github.io/" target="_blank">Let me know if this has helped: _________ ↗</a></p>
+      <p><a href="https://akelpieowner.github.io/" target="_blank">__GIVE FEEDBACK__</a></p>
     </main>
 
     <footer>
@@ -180,6 +118,5 @@ Also, one of the things we can confidently trust in life is science in especial 
     </footer>
   </div>
 
-  <link rel="stylesheet" href="blogstyle.css">
 </body>
 </html>
