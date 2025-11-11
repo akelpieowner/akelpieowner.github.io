@@ -96,7 +96,7 @@
 </head>
 
 <script>
-fetch('quotes.txt')
+fetch('quotes')
   .then(response => response.text())
   .then(text => {
     const quotes = text.split('\n').filter(q => q.trim().length > 0);
