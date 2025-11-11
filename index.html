@@ -94,6 +94,40 @@
     }
   </style>
 </head>
+
+<script>
+fetch('quotes.txt')
+  .then(response => response.text())
+  .then(text => {
+    const quotes = text.split('\n').filter(q => q.trim().length > 0);
+
+    // Get current year-month (e.g. "2025-11")
+    const now = new Date();
+    const yearMonth = now.getFullYear() + '-' + (now.getMonth() + 1);
+
+    // Check localStorage for saved quote + month
+    const savedMonth = localStorage.getItem('quoteMonth');
+    const savedQuote = localStorage.getItem('quoteText');
+
+    let quoteToUse;
+
+    if (savedMonth === yearMonth && savedQuote) {
+      // Use existing quote for this month
+      quoteToUse = savedQuote;
+    } else {
+      // Pick a new quote for the new month
+      quoteToUse = quotes[Math.floor(Math.random() * quotes.length)];
+
+      // Save it
+      localStorage.setItem('quoteMonth', yearMonth);
+      localStorage.setItem('quoteText', quoteToUse);
+    }
+
+    // Apply to your quote box
+    document.querySelector('.quote-box').innerText = '"' + quoteToUse + '"';
+  });
+</script>
+
 <body>
 
   <a href="empty.html" class="top-button">Open Empty Page</a>
@@ -167,39 +201,6 @@ Also, one of the things we can confidently trust in life is science in especial 
       Inspired by Tangerine Dream • Zima blue &amp; my own genius
     </footer>
   </div>
-
-<script>
-fetch('quotes.txt')
-  .then(response => response.text())
-  .then(text => {
-    const quotes = text.split('\n').filter(q => q.trim().length > 0);
-
-    // Get current year-month (e.g. "2025-11")
-    const now = new Date();
-    const yearMonth = now.getFullYear() + '-' + (now.getMonth() + 1);
-
-    // Check localStorage for saved quote + month
-    const savedMonth = localStorage.getItem('quoteMonth');
-    const savedQuote = localStorage.getItem('quoteText');
-
-    let quoteToUse;
-
-    if (savedMonth === yearMonth && savedQuote) {
-      // Use existing quote for this month
-      quoteToUse = savedQuote;
-    } else {
-      // Pick a new quote for the new month
-      quoteToUse = quotes[Math.floor(Math.random() * quotes.length)];
-
-      // Save it
-      localStorage.setItem('quoteMonth', yearMonth);
-      localStorage.setItem('quoteText', quoteToUse);
-    }
-
-    // Apply to your quote box
-    document.querySelector('.quote-box').innerText = '"' + quoteToUse + '"';
-  });
-</script>
 
 </body>
 </html>

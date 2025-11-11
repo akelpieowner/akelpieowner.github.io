@@ -72,29 +72,7 @@
     }
   </style>
 </head>
-<body>
 
-  <div class="quote-box">
-    "Quote of the month goes here."
-  </div>
-
-  <div class="content-wrapper">
-    <header>
-      <h1>Empty Page</h1>
-      <div class="meta">_________________, 092795</div>
-    </header>
-
-    <main>
-      <!-- Empty content sections -->
-      <section></section>
-      <section></section>
-      <section></section>
-    </main>
-
-    <footer>
-      Inspired by Tangerine Dream • Zima blue &amp; my own genius
-    </footer>
-  </div>
 <script>
 fetch('quotes.txt')
   .then(response => response.text())
@@ -127,6 +105,29 @@ fetch('quotes.txt')
     document.querySelector('.quote-box').innerText = '"' + quoteToUse + '"';
   });
 </script>
+<body>
+
+  <div class="quote-box">
+    "Quote of the month goes here."
+  </div>
+
+  <div class="content-wrapper">
+    <header>
+      <h1>Empty Page</h1>
+      <div class="meta">_________________, 092795</div>
+    </header>
+
+    <main>
+      <!-- Empty content sections -->
+      <section></section>
+      <section></section>
+      <section></section>
+    </main>
+
+    <footer>
+      Inspired by Tangerine Dream • Zima blue &amp; my own genius
+    </footer>
+  </div>
 
 </body>
 </html>
