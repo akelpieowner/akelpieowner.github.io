@@ -75,34 +75,34 @@
 
 <script>
 fetch('quotes')
-  .then(response => response.text())
+  .then(response => {
+    if (!response.ok) throw new Error("File not found");
+    return response.text();
+  })
   .then(text => {
     const quotes = text.split('\n').filter(q => q.trim().length > 0);
 
-    // Get current year-month (e.g. "2025-11")
     const now = new Date();
     const yearMonth = now.getFullYear() + '-' + (now.getMonth() + 1);
 
-    // Check localStorage for saved quote + month
     const savedMonth = localStorage.getItem('quoteMonth');
     const savedQuote = localStorage.getItem('quoteText');
 
     let quoteToUse;
 
     if (savedMonth === yearMonth && savedQuote) {
-      // Use existing quote for this month
       quoteToUse = savedQuote;
     } else {
-      // Pick a new quote for the new month
       quoteToUse = quotes[Math.floor(Math.random() * quotes.length)];
-
-      // Save it
       localStorage.setItem('quoteMonth', yearMonth);
       localStorage.setItem('quoteText', quoteToUse);
     }
 
-    // Apply to your quote box
     document.querySelector('.quote-box').innerText = '"' + quoteToUse + '"';
+  })
+  .catch(error => {
+    console.error('Error loading quotes:', error);
+    document.querySelector('.quote-box').innerText = "Quote not found.";
   });
 </script>
 <body>
