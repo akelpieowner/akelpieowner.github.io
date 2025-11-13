@@ -80,24 +80,22 @@
   </div>
 
 <script>
-fetch('quotes')
-  .then(res => res.text())
+fetch('quotes.txt')
+  .then(response => {
+    if (!response.ok) throw new Error("File not found");
+    return response.text();
+  })
   .then(text => {
-    const quotes = text.split(/\r?\n/).filter(q => q.trim());
-    if (quotes.length === 0) {
-      document.querySelector('.quote-box').innerText = 'No quote found';
-      return;
-    }
+    const quotes = text.split('\n').filter(q => q.trim().length > 0);
 
-    // Get current year-month
     const now = new Date();
     const yearMonth = now.getFullYear() + '-' + (now.getMonth() + 1);
 
-    // Check localStorage
-    let savedMonth = localStorage.getItem('quoteMonth');
-    let savedQuote = localStorage.getItem('quoteText');
+    const savedMonth = localStorage.getItem('quoteMonth');
+    const savedQuote = localStorage.getItem('quoteText');
 
     let quoteToUse;
+
     if (savedMonth === yearMonth && savedQuote) {
       quoteToUse = savedQuote;
     } else {
@@ -108,9 +106,9 @@ fetch('quotes')
 
     document.querySelector('.quote-box').innerText = '"' + quoteToUse + '"';
   })
-  .catch(err => {
-    console.error(err);
-    document.querySelector('.quote-box').innerText = 'No quote found';
+  .catch(error => {
+    console.error('Error loading quotes:', error);
+    document.querySelector('.quote-box').innerText = "Quote not found.";
   });
 </script>
 
