@@ -104,7 +104,7 @@
   </div>
 
 <script>
-fetch('quotes')
+fetch('quotes.txt')
   .then(res => res.text())
   .then(text => {
     const quotes = text.split(/\r?\n/).filter(q => q.trim());
