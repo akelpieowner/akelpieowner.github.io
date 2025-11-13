@@ -73,7 +73,13 @@
   </style>
 </head>
 
-<script>
+<body>
+
+  <div class="quote-box">
+    "Quote of the month goes here."
+  </div>
+
+  <script>
 fetch('quotes.txt')
   .then(response => {
     if (!response.ok) throw new Error("File not found");
@@ -105,11 +111,6 @@ fetch('quotes.txt')
     document.querySelector('.quote-box').innerText = "Quote not found.";
   });
 </script>
-<body>
-
-  <div class="quote-box">
-    "Quote of the month goes here."
-  </div>
 
   <div class="content-wrapper">
     <header>
