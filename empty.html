@@ -2,132 +2,89 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Empty Page</title>
+  <title>Continue Reflection</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <style>
     body {
       margin: 0;
       font-family: Georgia, serif;
+      /* Using your existing background image and fix settings */
       background: url('images/background.png') no-repeat center center fixed;
       background-size: cover;
       color: white;
       line-height: 1.7;
       cursor: default;
       scroll-behavior: smooth;
+      
+      /* New: Ensure content is vertically and horizontally centered */
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      text-align: center;
     }
 
+    /* We are removing the quote-box logic and positioning for this simple page */
+
+    /* Adjusted content-wrapper for centering */
     .content-wrapper {
-      max-width: 800px;
-      margin: 60px 0 0 40%;
+      max-width: 700px;
+      margin: 0 auto; /* Center the wrapper */
       padding: 20px;
       background: transparent;
       position: relative;
     }
 
-    .quote-box {
-      position: fixed;
-      top: 120px;
-      left: 20px;
-      width: 200px;
-      padding: 15px;
-      border: 2px solid rgba(255,255,255,0.7);
+    h1 {
+        font-size: 2.5em;
+        margin-bottom: 40px;
+    }
+
+    /* Style for the return button */
+    .return-button {
+      padding: 15px 30px;
+      background: none;
+      border: 2px solid white;
       border-radius: 8px;
-      background: rgba(0,0,0,0.4);
-      font-style: italic;
       color: white;
+      font-weight: bold;
+      text-decoration: none; /* Remove underline */
+      cursor: pointer;
+      display: inline-block;
+      margin-top: 40px;
+      transition: background 0.3s;
     }
 
-    header h1, header .meta, p, blockquote, nav a, footer {
-      color: white;
+    .return-button:hover {
+      background: rgba(255,255,255,0.2);
     }
-
-    section {
-      padding: 60px 20px;
-      margin-top: 60px;
-      background: transparent;
-      border: none;
-    }
-
-    nav, footer {
-      background: transparent;
-    }
-
-    nav a {
-      color: white;
-      text-decoration: none;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
+    
+    /* Media query to ensure mobile compatibility */
     @media (max-width: 768px) {
       .content-wrapper {
-        margin-left: 20%;
+        margin: 0 auto; 
         padding: 15px;
-      }
-      .quote-box {
-        display: none;
       }
     }
   </style>
 </head>
 
 <body>
-
-  <div class="quote-box">
-    "Quote of the month goes here."
-  </div>
-
-<script>
-fetch('quotes.txt')
-  .then(response => {
-    if (!response.ok) throw new Error("File not found");
-    return response.text();
-  })
-  .then(text => {
-    const quotes = text.split('\n').filter(q => q.trim().length > 0);
-
-    const now = new Date();
-    const yearMonth = now.getFullYear() + '-' + (now.getMonth() + 1);
-
-    const savedMonth = localStorage.getItem('quoteMonth');
-    const savedQuote = localStorage.getItem('quoteText');
-
-    let quoteToUse;
-
-    if (savedMonth === yearMonth && savedQuote) {
-      quoteToUse = savedQuote;
-    } else {
-      quoteToUse = quotes[Math.floor(Math.random() * quotes.length)];
-      localStorage.setItem('quoteMonth', yearMonth);
-      localStorage.setItem('quoteText', quoteToUse);
-    }
-
-    document.querySelector('.quote-box').innerText = '"' + quoteToUse + '"';
-  })
-  .catch(error => {
-    console.error('Error loading quotes:', error);
-    document.querySelector('.quote-box').innerText = "Quote not found.";
-  });
-</script>
-
+  
   <div class="content-wrapper">
     <header>
-      <h1>Empty Page</h1>
-      <div class="meta">_________________, 092795</div>
+      <h1>Reflection Complete.</h1>
+      <p style="font-style: italic; color: rgba(255,255,255,0.8);">
+        You have successfully finished the guided reflection from the quote.
+      </p>
     </header>
 
     <main>
-      <!-- Empty content sections -->
-      <section></section>
-      <section></section>
-      <section></section>
+      <a href="index.html" class="return-button">
+        Go Back to the Guide
+      </a>
     </main>
-
-    <footer>
-      Inspired by Tangerine Dream • Zima blue &amp; my own genius
-    </footer>
   </div>
 
 </body>
