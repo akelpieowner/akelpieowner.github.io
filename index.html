@@ -58,6 +58,13 @@
       font-style: italic;
       color: white;
     }
+    
+    /* NEW CSS for Clickable Quote */
+    .quote-box.clickable {
+      cursor: pointer;
+      /* Example: change border color when truncated */
+      border-color: rgba(255, 165, 0, 0.7); 
+    }
 
     header h1, header .meta, p, blockquote, nav a, footer {
       color: white;
@@ -99,41 +106,65 @@
 
   <a href="empty.html" class="top-button">Open Empty Page</a>
 
-  <div class="quote-box">
-    "Quote of the month goes here."
+  <div class="quote-box" id="quote-box">
+    "Loading quote..."
   </div>
 
 <script>
-fetch('quotes.txt')
-  .then(response => {
-    if (!response.ok) throw new Error("File not found");
-    return response.text();
-  })
-  .then(text => {
-    const quotes = text.split('\n').filter(q => q.trim().length > 0);
+  const MAX_LENGTH = 150; // The character limit before truncation
+  const quoteBox = document.getElementById('quote-box');
+  let fullQuoteText = ""; // Variable to hold the complete quote
 
-    const now = new Date();
-    const yearMonth = now.getFullYear() + '-' + (now.getMonth() + 1);
+  fetch('quotes.txt')
+    .then(response => {
+      if (!response.ok) throw new Error("File not found");
+      return response.text();
+    })
+    .then(text => {
+      const quotes = text.split('\n').filter(q => q.trim().length > 0);
 
-    const savedMonth = localStorage.getItem('quoteMonth');
-    const savedQuote = localStorage.getItem('quoteText');
+      const now = new Date();
+      const yearMonth = now.getFullYear() + '-' + (now.getMonth() + 1);
 
-    let quoteToUse;
+      const savedMonth = localStorage.getItem('quoteMonth');
+      const savedQuote = localStorage.getItem('quoteText');
 
-    if (savedMonth === yearMonth && savedQuote) {
-      quoteToUse = savedQuote;
-    } else {
-      quoteToUse = quotes[Math.floor(Math.random() * quotes.length)];
-      localStorage.setItem('quoteMonth', yearMonth);
-      localStorage.setItem('quoteText', quoteToUse);
-    }
+      let quoteToUse;
 
-    document.querySelector('.quote-box').innerText = '"' + quoteToUse + '"';
-  })
-  .catch(error => {
-    console.error('Error loading quotes:', error);
-    document.querySelector('.quote-box').innerText = "Quote not found.";
-  });
+      if (savedMonth === yearMonth && savedQuote) {
+        quoteToUse = savedQuote;
+      } else {
+        quoteToUse = quotes[Math.floor(Math.random() * quotes.length)];
+        localStorage.setItem('quoteMonth', yearMonth);
+        localStorage.setItem('quoteText', quoteToUse);
+      }
+
+      fullQuoteText = '"' + quoteToUse + '"';
+
+      if (fullQuoteText.length > MAX_LENGTH) {
+        // Truncate the quote and add an ellipsis
+        const truncatedQuote = fullQuoteText.substring(0, MAX_LENGTH) + '... (Click to read more)';
+        quoteBox.innerText = truncatedQuote;
+        quoteBox.classList.add('clickable'); // Add a class for styling
+        
+        // Add the click listener
+        quoteBox.addEventListener('click', function handler() {
+          quoteBox.innerText = fullQuoteText; // Show the full quote
+          quoteBox.classList.remove('clickable'); // Remove the clickable styling
+          quoteBox.removeEventListener('click', handler); // Remove listener after first click
+        });
+
+      } else {
+        // Quote is short enough, display it fully
+        quoteBox.innerText = fullQuoteText;
+      }
+
+    })
+    .catch(error => {
+      console.error('Error loading quotes:', error);
+      quoteBox.innerText = "Quote not found.";
+      quoteBox.classList.remove('clickable');
+    });
 </script>
 
   <div class="content-wrapper">
@@ -150,7 +181,7 @@ fetch('quotes.txt')
     <nav class="toc">
       <strong>Contents</strong>
       <ul>
-        <li><a href="#philosophy"> Why the fuss? On "Philosophy, who needs it?"  </a></li>
+        <li><a href="#philosophy"> Why the fuss? On "Philosophy, who needs it?" </a></li>
         <li><a href="#understanding"> Making sense & life's true metrics: energy, frequency, vibration, scarcity </a></li>
         <li><a href="#identity"> Controlling the mind: define your own genius </a></li>
         <li><a href="#guardyourtime"> Guard your time and your dynamics </a></li>
@@ -171,27 +202,27 @@ Also, one of the things we can confidently trust in life is science in especial 
       </section>
       <section id="understanding">
         <h2>1. Making sense & life's true metrics: energy, frequency, vibration, scarcity </h2>
-        <p><!-- Insert biology text here --></p>
+        <p></p>
       </section>
       <section id="identity">
         <h2>2. Controlling the mind: define your own genius </h2>
-        <p><!-- Insert neuroscience text here --></p>
+        <p></p>
       </section>
       <section id="guardyourtime">
         <h2>3. Guard your time and your dynamics </h2>
-        <p><!-- Insert economic development text here --></p>
+        <p></p>
       </section>
       <section id="growth">
         <h2>4. A new frontier of growth: intangible, everything digital, cyberspace </h2>
-        <p><!-- Insert peace & governance text here --></p>
+        <p></p>
       </section>
       <section id="guide">
         <h2>5. The ultimate direction </h2>
-        <p><!-- Insert work & meaning text here --></p>
+        <p></p>
       </section>
       <section id="johngalt">
         <h2>6. "The world you desire can be won." </h2>
-        <p><!-- Insert conclusion text here --></p>
+        <p></p>
       </section>
 
       <p><a href="https://akelpieowner.github.io/" target="_blank"> Reflect and share your thoughts here _______ ↗</a></p>
