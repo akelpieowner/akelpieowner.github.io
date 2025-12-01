@@ -163,21 +163,33 @@
       fullQuoteText = '"' + quoteToUse + '"';
 
       if (fullQuoteText.length > MAX_LENGTH) {
+        let isFullQuoteDisplayed = false; // New state variable
+
         // Truncate the quote and add an ellipsis
-        const truncatedQuote = fullQuoteText.substring(0, MAX_LENGTH) + '... (Click to read more)';
+        const truncatedQuote = fullQuoteText.substring(0, MAX_LENGTH) + '... (Click to continue)';
         quoteBox.innerText = truncatedQuote;
-        quoteBox.classList.add('clickable'); // Add a class for styling
+        quoteBox.classList.add('clickable');
         
-        // Add the click listener
+        // Two-stage click logic
         quoteBox.addEventListener('click', function handler() {
-          quoteBox.innerText = fullQuoteText; // Show the full quote
-          quoteBox.classList.remove('clickable'); // Remove the clickable styling
-          quoteBox.removeEventListener('click', handler); // Remove listener after first click
+          if (!isFullQuoteDisplayed) {
+            // Stage 1: Display full quote
+            quoteBox.innerText = fullQuoteText + ' (Click to Next Page)';
+            isFullQuoteDisplayed = true;
+          } else {
+            // Stage 2: Navigate to empty page
+            window.location.href = 'empty.html';
+          }
         });
 
       } else {
-        // Quote is short enough, display it fully
-        quoteBox.innerText = fullQuoteText;
+        // If the quote is short, the first click navigates directly
+        quoteBox.innerText = fullQuoteText + ' (Click to Next Page)';
+        quoteBox.classList.add('clickable');
+        
+        quoteBox.addEventListener('click', function handler() {
+            window.location.href = 'empty.html';
+        });
       }
 
     })
