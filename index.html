@@ -15,7 +15,6 @@
       line-height: 1.7;
       cursor: default;
       scroll-behavior: smooth;
-      transition: background 0.3s, color 0.3s; /* Smooth transition for theme switch */
     }
 
     /* Button at top */
@@ -32,7 +31,7 @@
       cursor: pointer;
       text-decoration: none;
       z-index: 1001;
-      transition: background 0.3s, color 0.3s, border-color 0.3s;
+      transition: background 0.3s;
     }
 
     .top-button:hover {
@@ -59,7 +58,6 @@
       background: rgba(0,0,0,0.4);
       font-style: italic;
       color: white;
-      transition: background 0.3s, color 0.3s, border-color 0.3s;
     }
     
     /* NEW CSS for Clickable Quote */
@@ -71,7 +69,6 @@
 
     header h1, header .meta, p, blockquote, nav a, footer {
       color: white;
-      transition: color 0.3s;
     }
 
     /* New style for chapter dates */
@@ -81,7 +78,6 @@
         margin-bottom: 20px;
         color: rgba(255, 255, 255, 0.7);
         font-style: italic;
-        transition: color 0.3s;
     }
 
     section {
@@ -125,62 +121,10 @@
   .quote-box.ready-to-navigate {
     border-color: #F3E5AB; /* Soft Vanilla/Pale Yellow */
   }
-
-  /* --- NEW STYLES FOR LIGHT MODE TOGGLE --- */
-  
-  /* The class that switches the theme */
-  body.light-mode {
-    background: white !important;
-    color: #111 !important;
-  }
-
-  /* Override text colors in light mode */
-  body.light-mode header h1, 
-  body.light-mode header .meta, 
-  body.light-mode p, 
-  body.light-mode blockquote, 
-  body.light-mode nav a, 
-  body.light-mode footer {
-    color: #111 !important;
-  }
-
-  body.light-mode .chapter-meta {
-    color: #555 !important;
-  }
-
-  /* Update buttons for light mode */
-  body.light-mode .top-button {
-    background: white;
-    color: #111;
-    border-color: #111;
-  }
-  body.light-mode .top-button:hover {
-    background: #eee;
-  }
-
-  /* Update quote box for light mode */
-  body.light-mode .quote-box {
-    background: #f9f9f9;
-    color: #111;
-    border-color: #111;
-  }
-  
-  /* Keep the specific border colors for quote interaction in light mode */
-  body.light-mode .quote-box.clickable {
-    border-color: #d35400; /* Darker orange for visibility on white */
-  }
-  body.light-mode .quote-box.ready-to-navigate {
-    border-color: #f1c40f; /* Darker yellow/gold for visibility on white */
-  }
-
-  /* Style for the new Toggle Button */
-  #theme-toggle-btn {
-    top: 75px; /* Positioned below the 'Reflections' button */
-  }
-
   </style>
 
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-QHE8VSJX0L"></script>
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-QHE8VSJX0L"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
@@ -193,21 +137,12 @@
 <body>
 
   <a href="empty.html" class="top-button">Reflections</a>
-  
-  <button id="theme-toggle-btn" class="top-button">Toggle Theme</button>
 
   <div class="quote-box" id="quote-box">
     "Loading quote..."
   </div>
 
 <script>
-  /* --- THEME TOGGLE LOGIC --- */
-  const themeBtn = document.getElementById('theme-toggle-btn');
-  themeBtn.addEventListener('click', () => {
-    document.body.classList.toggle('light-mode');
-  });
-
-  /* --- EXISTING QUOTE LOGIC --- */
   const MAX_LENGTH = 150; // The character limit before truncation
   const quoteBox = document.getElementById('quote-box');
   let fullQuoteText = ""; // Variable to hold the complete quote
