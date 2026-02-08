@@ -8,8 +8,9 @@
     body {
       margin: 0;
       font-family: Georgia, serif;
-      background: url('images/background.png') no-repeat center center fixed;
+      background: url('images/background.png') no-repeat center center;
       background-size: cover;
+      background-attachment: fixed;
       color: white;
       line-height: 1.7;
       cursor: default; /* makes mouse pointer visible */
