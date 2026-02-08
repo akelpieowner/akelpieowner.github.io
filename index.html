@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>A passer-by’s guide to reality; <br> 
+  <title>A passer-by's guide to reality; <br> 
     A definite, transactional and finite endeavour. Discomfort is a given. </title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <style>
@@ -60,11 +60,15 @@
       color: white;
     }
     
-    /* NEW CSS for Clickable Quote */
+    /* CSS for Clickable Quote - Orange border for truncated state */
     .quote-box.clickable {
       cursor: pointer;
-      /* Example: change border color when truncated */
       border-color: rgba(255, 165, 0, 0.7); 
+    }
+
+    /* Vanilla border for full quote state (Click to navigate) */
+    .quote-box.ready-to-navigate {
+      border-color: #F3E5AB; /* Soft Vanilla/Pale Yellow */
     }
 
     header h1, header .meta, p, blockquote, nav a, footer {
@@ -110,29 +114,6 @@
         display: none;
       }
     }
-
-    /* EXISTING CSS: Orange border for truncated state (Click to continue) */
-  .quote-box.clickable {
-    cursor: pointer;
-    border-color: rgba(255, 165, 0, 0.7); /* Orange/Amber color */
-  }
-
-  /* NEW CSS: Vanilla border for full quote state (Click to navigate) */
-  .quote-box.ready-to-navigate {
-    border-color: #F3E5AB; /* Soft Vanilla/Pale Yellow */
-  }
-
-  /* --- FRIEND VIEW MODIFICATION START --- */
-  /* Hide all sections and the table of contents by default */
-  section, {
-    display: none;
-  }
-
-  /* Explicitly show only the Philosophy section */
-  #philosophy {
-    display: block;
-  }
-  /* --- FRIEND VIEW MODIFICATION END --- */
 
   </style>
 
@@ -235,13 +216,13 @@
 
   <div class="content-wrapper">
     <header>
-      <h1> A passer-by’s guide to reality; loss of genie to repetition? </h1>
+      <h1> A passer-by's guide to reality; loss of genie to repetition? </h1>
       <div class="meta">_________________, 092795</div>
     </header>
 
     <div class="intro">
       <p>A definite, transactional and finite endeavour.</p>
-      <blockquote>“Is there more to life than what we give to it? Can we approximate the extent that which we don't know; and how much that influences us? The answer to both: NO.”</blockquote>
+      <blockquote>"Is there more to life than what we give to it? Can we approximate the extent that which we don't know; and how much that influences us? The answer to both: NO."</blockquote>
     </div>
 
     <nav class="toc">
@@ -262,7 +243,7 @@
       <section id="philosophy">
         <h2> Why the fuss? On "Philosophy, who needs it? </h2>
         <div class="chapter-meta">empty_date</div>
-        <p> I have been planning to write this “guide” of sorts as part of my own arsenal of reminders that life is something we must enjoy and master all its facets. I will seek to argue to maintain a healthy balance of your biological self and surrounding abstractions of your reality in the midst of the everything-available-all-at-once phenomenon we are experiencing. <br> At present much of your life is <strong> made occupied </strong> by what exactly? Your habits, routines and mental imagery entirely shaped by you, or so we think. Make one logical leap here and we can conclude that during the course of your life your daily routine accounts for most of your actively spent time. Is there an end to this time? Are you happily letting your time go for these routines? What is in it for you? Ever felt frustrated being stuck in doing the same? Well, this blog is definitely not going to help you with that, not unless you want this to help you. <br> Ask yourself before moving forward; and in answering limit the scope of answers for your own good and only your own good. Now I know the idea is wild… but if you tried to *metrify* yourself and established a faithful, realistic pattern based on which you can provide meaning, guidance and direction in your life? How would that make You feel? <br> I don’t intend to say all of this is possible, but it surely would make you feel better if you had a bit more volition in your life, right? <br> 
+        <p> I have been planning to write this "guide" of sorts as part of my own arsenal of reminders that life is something we must enjoy and master all its facets. I will seek to argue to maintain a healthy balance of your biological self and surrounding abstractions of your reality in the midst of the everything-available-all-at-once phenomenon we are experiencing. <br> At present much of your life is <strong> made occupied </strong> by what exactly? Your habits, routines and mental imagery entirely shaped by you, or so we think. Make one logical leap here and we can conclude that during the course of your life your daily routine accounts for most of your actively spent time. Is there an end to this time? Are you happily letting your time go for these routines? What is in it for you? Ever felt frustrated being stuck in doing the same? Well, this blog is definitely not going to help you with that, not unless you want this to help you. <br> Ask yourself before moving forward; and in answering limit the scope of answers for your own good and only your own good. Now I know the idea is wild… but if you tried to *metrify* yourself and established a faithful, realistic pattern based on which you can provide meaning, guidance and direction in your life? How would that make You feel? <br> I don't intend to say all of this is possible, but it surely would make you feel better if you had a bit more volition in your life, right? <br> 
 As you are reading this, I advise that you make notes, reflect on your life and read through this, chapter by chapter as each chapter builds on the previous one. Do not feel frustrated, ignore that life is unfair and it is much better to build on what you have instead of always looking outwards, identifying what you don't have. <br> Except for a select few, we all play by the same rules, same resources, same patterns in life. <br>
 Throughout my text, some of my points will need scientific justification so as to not just make this an empty talk, however I am not always going to coin scientific terms as that would make reading this text pretentious and pathetic. In this understanding, think of science as a means to prove that something objectively works, is as described.
 The solid, known foundations of our physical reality are set and cannot be changed – as per our best knowledge, at the time of writing this – and we all play by the same rules.  <br> 
@@ -284,7 +265,7 @@ I would also like to emphasize here that these texts in my opinion help the most
         <p> Amongst the many factors impacting our identity and genius, only a select few are ours to take. Gender, ethnicity, oftentimes social class are given; not much to do about them. <br>
         Consequently, it is crucial that we channel our efforts to make the rest count, that is our choices, actions, conscious endavours. <br> If there ever was a phenomenon that overshadows one's forming of an identity, Tocqueville was right to refer to it as the <strong>tyranny of majority</strong>. Learning to think clearly is knowing what is and isn't in control. <br> 
       I often urge myself to think in essentials, and in relation to those how to think in terms of principles related to them. In other words, think of your actions as tools of thought, a way to contextualize and materialize an idea, experience that idea. How do you do that? You rationalize an end-goal and hopefully associate the proper principles to reach that goal. Then, you assume an attitude, a behavioral pattern to get rid of the societal dogmas associated with that goal. <br>
-    This leaves you with your own actionable plan towards your goal bereft of any external influence. If done well, nothing holds you back at this point and you can always rationalize an actionable next step to reach your goals, stick to a tempo and justify your means. What do you think? </be></p>
+    This leaves you with your own actionable plan towards your goal bereft of any external influence. If done well, nothing holds you back at this point and you can always rationalize an actionable next step to reach your goals, stick to a tempo and justify your means. What do you think? <br></p>
       </section>
       <section id="guardyourtime">
         <h2>3. Guard your time and your dynamics </h2>

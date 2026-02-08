@@ -1,31 +1,60 @@
-body {
-  margin: 0;
-  font-family: Georgia, serif;
-  background: url('images/background.png') no-repeat center center fixed;
-  background-size: cover;
-  color: white;
-  line-height: 1.7;
-  cursor: default; /* makes mouse pointer visible */
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Reflections</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <style>
+    body {
+      margin: 0;
+      font-family: Georgia, serif;
+      background: url('images/background.png') no-repeat center center fixed;
+      background-size: cover;
+      color: white;
+      line-height: 1.7;
+      cursor: default; /* makes mouse pointer visible */
+    }
 
-.content-wrapper {
-  max-width: 800px;
-  margin: 60px 0 0 40%; /* leaning right */
-  padding: 20px;
-  background: transparent; /* no white column */
-}
+    .content-wrapper {
+      max-width: 800px;
+      margin: 60px 0 0 40%; /* leaning right */
+      padding: 20px;
+      background: transparent; /* no white column */
+    }
 
-section {
-  padding: 60px 20px;
-  margin-top: 60px;
-  background: transparent; /* remove any color */
-  border: none;
-}
+    section {
+      padding: 60px 20px;
+      margin-top: 60px;
+      background: transparent; /* remove any color */
+      border: none;
+    }
 
-header h1, header .meta, p, blockquote, nav a, footer {
-  color: white; /* all text in white */
-}
+    header h1, header .meta, p, blockquote, nav a, footer {
+      color: white; /* all text in white */
+    }
 
-nav, footer {
-  background: transparent; /* remove colored bars */
-}
+    nav, footer {
+      background: transparent; /* remove colored bars */
+    }
+  </style>
+</head>
+<body>
+
+  <div class="content-wrapper">
+    <header>
+      <h1>Reflections</h1>
+    </header>
+
+    <main>
+      <section>
+        <p>Your reflections content goes here...</p>
+      </section>
+    </main>
+
+    <footer>
+      <p><a href="index.html" style="color: white; text-decoration: none;">← Back to Guide</a></p>
+    </footer>
+  </div>
+
+</body>
+</html>
