@@ -2,43 +2,108 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Continue Reflection</title>
+  <title>Quotes & Reflections</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <style>
     body {
       margin: 0;
       font-family: Georgia, serif;
       background: #62C4C3;
-      background-size: cover;
       color: white;
       line-height: 1.7;
       cursor: default;
       scroll-behavior: smooth;
-      
-      /* New: Ensure content is vertically and horizontally centered */
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
+      padding: 40px 20px;
       min-height: 100vh;
-      text-align: center;
     }
 
-    /* Adjusted content-wrapper for centering */
     .content-wrapper {
-      max-width: 700px;
-      margin: 0 auto; /* Center the wrapper */
+      max-width: 900px;
+      margin: 0 auto;
       padding: 20px;
-      background: transparent;
-      position: relative;
     }
 
     h1 {
-        font-size: 2.5em;
-        margin-bottom: 40px;
+      font-size: 2.5em;
+      margin-bottom: 20px;
+      text-align: center;
     }
 
-    /* Style for the return button */
+    .subtitle {
+      text-align: center;
+      font-style: italic;
+      color: rgba(255,255,255,0.8);
+      margin-bottom: 50px;
+    }
+
+    .quotes-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+      margin-bottom: 40px;
+    }
+
+    .quote-box {
+      background: rgba(255, 255, 255, 0.15);
+      border: 2px solid white;
+      border-radius: 12px;
+      padding: 25px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .quote-box:hover {
+      background: rgba(255, 255, 255, 0.25);
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    }
+
+    .quote-text {
+      font-size: 1.1em;
+      font-style: italic;
+      margin-bottom: 10px;
+      line-height: 1.6;
+    }
+
+    .quote-author {
+      font-size: 0.9em;
+      text-align: right;
+      color: rgba(255,255,255,0.9);
+      font-weight: bold;
+    }
+
+    .reflection {
+      max-height: 0;
+      opacity: 0;
+      overflow: hidden;
+      transition: all 0.4s ease;
+      margin-top: 20px;
+      padding-top: 0;
+      border-top: 2px solid rgba(255,255,255,0);
+    }
+
+    .quote-box.active .reflection {
+      max-height: 500px;
+      opacity: 1;
+      padding-top: 20px;
+      border-top: 2px solid rgba(255,255,255,0.5);
+    }
+
+    .reflection-title {
+      font-weight: bold;
+      margin-bottom: 10px;
+      font-size: 1em;
+      color: rgba(255,255,255,0.95);
+    }
+
+    .reflection-text {
+      font-style: normal;
+      font-size: 0.95em;
+      line-height: 1.7;
+    }
+
     .return-button {
       padding: 15px 30px;
       background: none;
@@ -46,7 +111,7 @@
       border-radius: 8px;
       color: white;
       font-weight: bold;
-      text-decoration: none; /* Remove underline */
+      text-decoration: none;
       cursor: pointer;
       display: inline-block;
       margin-top: 40px;
@@ -56,12 +121,18 @@
     .return-button:hover {
       background: rgba(255,255,255,0.2);
     }
-    
-    /* Media query to ensure mobile compatibility */
+
+    .button-container {
+      text-align: center;
+    }
+
     @media (max-width: 768px) {
-      .content-wrapper {
-        margin: 0 auto; 
-        padding: 15px;
+      .quotes-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      h1 {
+        font-size: 2em;
       }
     }
   </style>
@@ -71,18 +142,118 @@
   
   <div class="content-wrapper">
     <header>
-      <h1>Reflection Complete.</h1>
-      <p style="font-style: italic; color: rgba(255,255,255,0.8);">
-        Reflections are entirely subjective, frame the narrative the way you want.
+      <h1>Quotes & Reflections</h1>
+      <p class="subtitle">
+        Click on any quote to reveal your reflection
       </p>
     </header>
 
     <main>
-      <a href="index.html" class="return-button">
-        Go Back to the Guide
-      </a>
+      <div class="quotes-grid">
+        
+        <div class="quote-box" onclick="this.classList.toggle('active')">
+          <div class="quote-text">
+            "The only way to do great work is to love what you do."
+          </div>
+          <div class="quote-author">— Steve Jobs</div>
+          <div class="reflection">
+            <div class="reflection-title">My Reflection:</div>
+            <div class="reflection-text">
+              This quote reminds me that passion is the foundation of excellence. When I work on projects I truly care about, the effort doesn't feel like work—it feels like purpose. I've learned that finding what I love is just as important as being good at it.
+            </div>
+          </div>
+        </div>
+
+        <div class="quote-box" onclick="this.classList.toggle('active')">
+          <div class="quote-text">
+            "In the middle of difficulty lies opportunity."
+          </div>
+          <div class="quote-author">— Albert Einstein</div>
+          <div class="reflection">
+            <div class="reflection-title">My Reflection:</div>
+            <div class="reflection-text">
+              Every challenge I've faced has taught me something valuable. When things get tough, I try to look for the lesson or the hidden opportunity. This mindset has helped me grow through obstacles rather than just survive them.
+            </div>
+          </div>
+        </div>
+
+        <div class="quote-box" onclick="this.classList.toggle('active')">
+          <div class="quote-text">
+            "Be yourself; everyone else is already taken."
+          </div>
+          <div class="quote-author">— Oscar Wilde</div>
+          <div class="reflection">
+            <div class="reflection-title">My Reflection:</div>
+            <div class="reflection-text">
+              Authenticity has become my guiding principle. I've stopped trying to fit into molds that weren't made for me. Embracing my unique perspective and voice has brought me more genuine connections and personal peace.
+            </div>
+          </div>
+        </div>
+
+        <div class="quote-box" onclick="this.classList.toggle('active')">
+          <div class="quote-text">
+            "The journey of a thousand miles begins with one step."
+          </div>
+          <div class="quote-author">— Lao Tzu</div>
+          <div class="reflection">
+            <div class="reflection-title">My Reflection:</div>
+            <div class="reflection-text">
+              I used to get overwhelmed by big goals, but this quote taught me to focus on the next small action. Progress isn't about giant leaps—it's about consistent, intentional steps forward. Each small win builds momentum.
+            </div>
+          </div>
+        </div>
+
+        <div class="quote-box" onclick="this.classList.toggle('active')">
+          <div class="quote-text">
+            "What we think, we become."
+          </div>
+          <div class="quote-author">— Buddha</div>
+          <div class="reflection">
+            <div class="reflection-title">My Reflection:</div>
+            <div class="reflection-text">
+              My thoughts shape my reality more than I realized. When I changed my inner dialogue from self-doubt to self-compassion, everything shifted. I'm learning to be intentional about the narratives I tell myself.
+            </div>
+          </div>
+        </div>
+
+        <div class="quote-box" onclick="this.classList.toggle('active')">
+          <div class="quote-text">
+            "Life is what happens when you're busy making other plans."
+          </div>
+          <div class="quote-author">— John Lennon</div>
+          <div class="reflection">
+            <div class="reflection-title">My Reflection:</div>
+            <div class="reflection-text">
+              This reminds me to stay present. I've missed beautiful moments because I was too focused on what's next. Now I try to balance planning for the future with fully experiencing the now.
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="button-container">
+        <a href="index.html" class="return-button">
+          Go Back to the Guide
+        </a>
+      </div>
     </main>
   </div>
+
+  <script>
+    // Optional: Close other boxes when one is opened (accordion style)
+    // Uncomment if you want only one reflection visible at a time
+    /*
+    document.querySelectorAll('.quote-box').forEach(box => {
+      box.addEventListener('click', function() {
+        document.querySelectorAll('.quote-box').forEach(otherBox => {
+          if (otherBox !== this) {
+            otherBox.classList.remove('active');
+          }
+        });
+      });
+    });
+    */
+  </script>
 
 </body>
 </html>
