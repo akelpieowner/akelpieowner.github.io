@@ -67,13 +67,6 @@
       line-height: 1.6;
     }
 
-    .quote-author {
-      font-size: 0.9em;
-      text-align: right;
-      color: rgba(255,255,255,0.9);
-      font-weight: bold;
-    }
-
     .reflection {
       max-height: 0;
       opacity: 0;
@@ -126,6 +119,12 @@
       text-align: center;
     }
 
+    .loading {
+      text-align: center;
+      padding: 40px;
+      font-style: italic;
+    }
+
     @media (max-width: 768px) {
       .quotes-grid {
         grid-template-columns: 1fr;
@@ -149,86 +148,8 @@
     </header>
 
     <main>
-      <div class="quotes-grid">
-        
-        <div class="quote-box" onclick="this.classList.toggle('active')">
-          <div class="quote-text">
-            "The only way to do great work is to love what you do."
-          </div>
-          <div class="quote-author">— Steve Jobs</div>
-          <div class="reflection">
-            <div class="reflection-title">My Reflection:</div>
-            <div class="reflection-text">
-              This quote reminds me that passion is the foundation of excellence. When I work on projects I truly care about, the effort doesn't feel like work—it feels like purpose. I've learned that finding what I love is just as important as being good at it.
-            </div>
-          </div>
-        </div>
-
-        <div class="quote-box" onclick="this.classList.toggle('active')">
-          <div class="quote-text">
-            "In the middle of difficulty lies opportunity."
-          </div>
-          <div class="quote-author">— Albert Einstein</div>
-          <div class="reflection">
-            <div class="reflection-title">My Reflection:</div>
-            <div class="reflection-text">
-              Every challenge I've faced has taught me something valuable. When things get tough, I try to look for the lesson or the hidden opportunity. This mindset has helped me grow through obstacles rather than just survive them.
-            </div>
-          </div>
-        </div>
-
-        <div class="quote-box" onclick="this.classList.toggle('active')">
-          <div class="quote-text">
-            "Be yourself; everyone else is already taken."
-          </div>
-          <div class="quote-author">— Oscar Wilde</div>
-          <div class="reflection">
-            <div class="reflection-title">My Reflection:</div>
-            <div class="reflection-text">
-              Authenticity has become my guiding principle. I've stopped trying to fit into molds that weren't made for me. Embracing my unique perspective and voice has brought me more genuine connections and personal peace.
-            </div>
-          </div>
-        </div>
-
-        <div class="quote-box" onclick="this.classList.toggle('active')">
-          <div class="quote-text">
-            "The journey of a thousand miles begins with one step."
-          </div>
-          <div class="quote-author">— Lao Tzu</div>
-          <div class="reflection">
-            <div class="reflection-title">My Reflection:</div>
-            <div class="reflection-text">
-              I used to get overwhelmed by big goals, but this quote taught me to focus on the next small action. Progress isn't about giant leaps—it's about consistent, intentional steps forward. Each small win builds momentum.
-            </div>
-          </div>
-        </div>
-
-        <div class="quote-box" onclick="this.classList.toggle('active')">
-          <div class="quote-text">
-            "What we think, we become."
-          </div>
-          <div class="quote-author">— Buddha</div>
-          <div class="reflection">
-            <div class="reflection-title">My Reflection:</div>
-            <div class="reflection-text">
-              My thoughts shape my reality more than I realized. When I changed my inner dialogue from self-doubt to self-compassion, everything shifted. I'm learning to be intentional about the narratives I tell myself.
-            </div>
-          </div>
-        </div>
-
-        <div class="quote-box" onclick="this.classList.toggle('active')">
-          <div class="quote-text">
-            "Life is what happens when you're busy making other plans."
-          </div>
-          <div class="quote-author">— John Lennon</div>
-          <div class="reflection">
-            <div class="reflection-title">My Reflection:</div>
-            <div class="reflection-text">
-              This reminds me to stay present. I've missed beautiful moments because I was too focused on what's next. Now I try to balance planning for the future with fully experiencing the now.
-            </div>
-          </div>
-        </div>
-
+      <div class="quotes-grid" id="quotes-container">
+        <div class="loading">Loading quotes...</div>
       </div>
 
       <div class="button-container">
@@ -240,19 +161,45 @@
   </div>
 
   <script>
-    // Optional: Close other boxes when one is opened (accordion style)
-    // Uncomment if you want only one reflection visible at a time
-    /*
-    document.querySelectorAll('.quote-box').forEach(box => {
-      box.addEventListener('click', function() {
-        document.querySelectorAll('.quote-box').forEach(otherBox => {
-          if (otherBox !== this) {
-            otherBox.classList.remove('active');
-          }
+    // Load quotes from quotes.txt
+    fetch('quotes.txt')
+      .then(response => {
+        if (!response.ok) throw new Error("File not found");
+        return response.text();
+      })
+      .then(text => {
+        const quotes = text.split('\n').filter(q => q.trim().length > 0);
+        const container = document.getElementById('quotes-container');
+        
+        // Clear loading message
+        container.innerHTML = '';
+        
+        // Create a quote box for each quote
+        quotes.forEach((quote, index) => {
+          const quoteBox = document.createElement('div');
+          quoteBox.className = 'quote-box';
+          quoteBox.onclick = function() { this.classList.toggle('active'); };
+          
+          quoteBox.innerHTML = `
+            <div class="quote-text">
+              "${quote}"
+            </div>
+            <div class="reflection">
+              <div class="reflection-title">My Reflection:</div>
+              <div class="reflection-text">
+                Add your personal reflection for this quote here.
+              </div>
+            </div>
+          `;
+          
+          container.appendChild(quoteBox);
         });
+      })
+      .catch(error => {
+        console.error('Error loading quotes:', error);
+        document.getElementById('quotes-container').innerHTML = 
+          '<div class="loading">Error loading quotes. Please make sure quotes.txt is in the same directory.</div>';
       });
-    });
-    */
   </script>
 
 </body>
