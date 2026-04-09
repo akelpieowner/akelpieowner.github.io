@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Quotes & Reflections</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <style>
+    body {
+      margin: 0;
+      font-family: Georgia, serif;
+      background: #62C4C3;
+      color: white;
+      line-height: 1.7;
+      cursor: default;
+      scroll-behavior: smooth;
+      padding: 40px 20px;
+      min-height: 100vh;
+    }
+
+    .content-wrapper {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    h1 {
+      font-size: 2.5em;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .subtitle {
+      text-align: center;
+      font-style: italic;
+      color: rgba(255,255,255,0.8);
+      margin-bottom: 50px;
+    }
+
+    .quotes-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+      margin-bottom: 40px;
+    }
+
+    .quote-box {
+      background: rgba(255, 255, 255, 0.15);
+      border: 2px solid white;
+      border-radius: 12px;
+      padding: 25px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .quote-box:hover {
+      background: rgba(255, 255, 255, 0.25);
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    }
+
+    .quote-text {
+      font-size: 1.1em;
+      font-style: italic;
+      margin-bottom: 10px;
+      line-height: 1.6;
+    }
+
+    .reflection {
+      max-height: 0;
+      opacity: 0;
+      overflow: hidden;
+      transition: all 0.4s ease;
+      margin-top: 20px;
+      padding-top: 0;
+      border-top: 2px solid rgba(255,255,255,0);
+    }
+
+    .quote-box.active .reflection {
+      max-height: 500px;
+      opacity: 1;
+      padding-top: 20px;
+      border-top: 2px solid rgba(255,255,255,0.5);
+    }
+
+    .reflection-title {
+      font-weight: bold;
+      margin-bottom: 10px;
+      font-size: 1em;
+      color: rgba(255,255,255,0.95);
+    }
+
+    .reflection-text {
+      font-style: normal;
+      font-size: 0.95em;
+      line-height: 1.7;
+    }
+
+    .return-button {
+      padding: 15px 30px;
+      background: none;
+      border: 2px solid white;
+      border-radius: 8px;
+      color: white;
+      font-weight: bold;
+      text-decoration: none;
+      cursor: pointer;
+      display: inline-block;
+      margin-top: 40px;
+      transition: background 0.3s;
+    }
+
+    .return-button:hover {
+      background: rgba(255,255,255,0.2);
+    }
+
+    .button-container {
+      text-align: center;
+    }
+
+    .loading {
+      text-align: center;
+      padding: 40px;
+      font-style: italic;
+    }
+
+    @media (max-width: 768px) {
+      .quotes-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      h1 {
+        font-size: 2em;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  
+  <div class="content-wrapper">
+    <header>
+      <h1>Quotes & Reflections</h1>
+      <p class="subtitle">
+        Click on any quote to reveal your reflection
+      </p>
+    </header>
+
+    <main>
+      <div class="quotes-grid" id="quotes-container">
+        <div class="loading">Loading quotes...</div>
+      </div>
+
+      <div class="button-container">
+        <a href="index.html" class="return-button">
+          Go Back to the Guide
+        </a>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    // Load quotes from quotes.txt
+    fetch('quotes.txt')
+      .then(response => {
+        if (!response.ok) throw new Error("File not found");
+        return response.text();
+      })
+      .then(text => {
+        const quotes = text.split('\n').filter(q => q.trim().length > 0);
+        const container = document.getElementById('quotes-container');
+        
+        // Clear loading message
+        container.innerHTML = '';
+        
+        // Create a quote box for each quote
+        quotes.forEach((quote, index) => {
+          const quoteBox = document.createElement('div');
+          quoteBox.className = 'quote-box';
+          quoteBox.onclick = function() { this.classList.toggle('active'); };
+          
+          quoteBox.innerHTML = `
+            <div class="quote-text">
+              "${quote}"
+            </div>
+            <div class="reflection">
+              <div class="reflection-title">My Reflection:</div>
+              <div class="reflection-text">
+                <!-- Add your personal reflection for this quote here -->
+                This quote resonates with me because it speaks to the core of living authentically and with purpose. It reminds me to stay true to my values and vision.
+              </div>
+            </div>
+          `;
+          
+          container.appendChild(quoteBox);
+        });
+      })
+      .catch(error => {
+        console.error('Error loading quotes:', error);
+        document.getElementById('quotes-container').innerHTML = 
+          '<div class="loading">Error loading quotes. Please make sure quotes.txt is in the same directory.</div>';
+      });
+  </script>
+
+</body>
+</html>
