@@ -2,143 +2,287 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>A passer-by's guide to reality; <br> 
-    A definite, transactional and finite endeavour. Discomfort is a given. </title>
+  <title>A passer-by's guide to reality</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <style>
-    body {
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;600&display=swap');
+    
+    * {
       margin: 0;
-      font-family: Georgia, serif;
-      background: #62C4C3;
-      background-size: cover;
-      color: white;
-      line-height: 1.7;
-      cursor: default;
-      scroll-behavior: smooth;
+      padding: 0;
+      box-sizing: border-box;
     }
 
-    /* Button at top */
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+      color: #e8e8e8;
+      line-height: 1.8;
+      scroll-behavior: smooth;
+      min-height: 100vh;
+    }
+
+    /* Top button */
     .top-button {
       position: fixed;
-      top: 20px;
-      right: 20px;
-      padding: 12px 20px;
-      background: rgba(0,0,0,0.6);
-      border: 2px solid white;
-      border-radius: 8px;
-      color: white;
-      font-weight: bold;
+      top: 30px;
+      right: 30px;
+      padding: 14px 28px;
+      background: rgba(232, 193, 160, 0.15);
+      border: 2px solid #e8c1a0;
+      border-radius: 25px;
+      color: #e8c1a0;
+      font-weight: 600;
       cursor: pointer;
       text-decoration: none;
       z-index: 1001;
-      transition: background 0.3s;
+      transition: all 0.3s ease;
+      font-size: 0.95rem;
+      backdrop-filter: blur(10px);
     }
 
     .top-button:hover {
-      background: rgba(255,255,255,0.2);
+      background: #e8c1a0;
+      color: #1a1a2e;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(232, 193, 160, 0.3);
     }
 
-    /* MODIFICATION 1: Center Content */
-    .content-wrapper {
-      max-width: 700px; /* Slightly reduced for better center appearance */
-      margin: 60px auto 0 auto; /* Centering the block element */
-      padding: 20px;
-      background: transparent;
-      position: relative;
-    }
-
+    /* Quote box */
     .quote-box {
       position: fixed;
       top: 120px;
-      left: 20px;
-      width: 200px;
-      padding: 15px;
-      border: 2px solid rgba(255,255,255,0.7);
-      border-radius: 8px;
-      background: rgba(0,0,0,0.4);
+      left: 40px;
+      width: 280px;
+      padding: 25px;
+      border: 2px solid rgba(232, 193, 160, 0.4);
+      border-radius: 16px;
+      background: rgba(26, 26, 46, 0.8);
+      backdrop-filter: blur(10px);
       font-style: italic;
-      color: white;
+      color: #e8e8e8;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+      font-size: 0.95rem;
+      line-height: 1.6;
     }
     
-    /* CSS for Clickable Quote - Orange border for truncated state */
     .quote-box.clickable {
       cursor: pointer;
-      border-color: rgba(255, 165, 0, 0.7); 
+      border-color: #f97068;
     }
 
-    /* Vanilla border for full quote state (Click to navigate) */
     .quote-box.ready-to-navigate {
-      border-color: #F3E5AB; /* Soft Vanilla/Pale Yellow */
+      border-color: #e8c1a0;
     }
 
-    header h1, header .meta, p, blockquote, nav a, footer {
-      color: white;
+    /* Content wrapper */
+    .content-wrapper {
+      max-width: 820px;
+      margin: 80px auto 0 auto;
+      padding: 40px 30px;
+      background: rgba(26, 26, 46, 0.6);
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
     }
 
-    /* New style for chapter dates */
-    .chapter-meta {
-        font-size: 0.9em;
-        margin-top: -15px;
-        margin-bottom: 20px;
-        color: rgba(255, 255, 255, 0.7);
-        font-style: italic;
+    header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.8em;
+      margin-bottom: 20px;
+      color: #e8c1a0;
+      font-weight: 700;
+      line-height: 1.3;
     }
 
-    section {
-      padding: 60px 20px;
-      margin-top: 60px;
-      background: transparent;
-      border: none;
+    header .meta {
+      font-size: 1.1em;
+      color: rgba(232, 232, 232, 0.7);
+      margin-bottom: 30px;
     }
 
-    nav, footer {
-      background: transparent;
+    .intro {
+      margin: 40px 0;
+      padding: 30px;
+      background: rgba(232, 193, 160, 0.08);
+      border-left: 4px solid #e8c1a0;
+      border-radius: 8px;
     }
 
-    nav a {
-      color: white;
+    .intro p {
+      font-size: 1.1em;
+      margin-bottom: 20px;
+      color: #e8e8e8;
+      font-weight: 300;
+    }
+
+    blockquote {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 1.15em;
+      color: #e8c1a0;
+      padding: 20px 0;
+      margin: 0;
+      line-height: 1.7;
+    }
+
+    /* Navigation */
+    nav.toc {
+      margin: 50px 0;
+      padding: 30px;
+      background: rgba(15, 52, 96, 0.3);
+      border-radius: 12px;
+      border: 1px solid rgba(232, 193, 160, 0.2);
+    }
+
+    nav.toc strong {
+      display: block;
+      font-size: 1.3em;
+      margin-bottom: 20px;
+      color: #e8c1a0;
+      font-family: 'Playfair Display', serif;
+    }
+
+    nav.toc ul {
+      list-style: none;
+    }
+
+    nav.toc li {
+      margin: 15px 0;
+    }
+
+    nav.toc a {
+      color: #e8e8e8;
       text-decoration: none;
+      transition: all 0.3s ease;
+      display: inline-block;
+      position: relative;
+      padding-left: 20px;
     }
 
-    html {
-      scroll-behavior: smooth;
+    nav.toc a:before {
+      content: "→";
+      position: absolute;
+      left: 0;
+      color: #e8c1a0;
+      opacity: 0;
+      transition: all 0.3s ease;
+    }
+
+    nav.toc a:hover {
+      color: #e8c1a0;
+      transform: translateX(5px);
+    }
+
+    nav.toc a:hover:before {
+      opacity: 1;
+    }
+
+    /* Sections */
+    section {
+      padding: 60px 0;
+      margin-top: 40px;
+      border-top: 1px solid rgba(232, 193, 160, 0.15);
+    }
+
+    section h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2em;
+      margin-bottom: 15px;
+      color: #e8c1a0;
+      font-weight: 700;
+    }
+
+    .chapter-meta {
+      font-size: 0.9em;
+      margin-bottom: 25px;
+      color: rgba(232, 232, 232, 0.5);
+      font-style: italic;
+    }
+
+    section p {
+      margin-bottom: 20px;
+      color: #e8e8e8;
+      font-size: 1.05em;
+      line-height: 1.8;
+      font-weight: 300;
+    }
+
+    section strong {
+      color: #e8c1a0;
+      font-weight: 600;
+    }
+
+    main a {
+      color: #e8c1a0;
+      text-decoration: none;
+      border-bottom: 1px solid rgba(232, 193, 160, 0.3);
+      transition: all 0.3s ease;
+    }
+
+    main a:hover {
+      border-bottom-color: #e8c1a0;
+      color: #f9dec9;
+    }
+
+    /* Footer */
+    footer {
+      margin-top: 60px;
+      padding: 30px 0;
+      text-align: center;
+      color: rgba(232, 232, 232, 0.5);
+      font-size: 0.95em;
+      border-top: 1px solid rgba(232, 193, 160, 0.15);
     }
 
     @media (max-width: 768px) {
       .content-wrapper {
-        margin: 60px auto 0 auto; /* Keep centered */
-        padding: 15px;
+        margin: 60px 15px 0;
+        padding: 25px 20px;
       }
-      /* Hide fixed quote box on small screens as before */
+      
       .quote-box {
         display: none;
       }
-    }
 
+      header h1 {
+        font-size: 2em;
+      }
+
+      section h2 {
+        font-size: 1.6em;
+      }
+
+      .top-button {
+        top: 20px;
+        right: 20px;
+        padding: 10px 20px;
+        font-size: 0.85rem;
+      }
+    }
   </style>
 
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-QHE8VSJX0L"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-QHE8VSJX0L');
-</script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-QHE8VSJX0L');
+  </script>
 </head>
 
 <body>
 
-  <a href="quotes1.html" class="top-button">Quotes & Reflections</a>
+  <a href="quotes.html" class="top-button">Quotes & Reflections</a>
 
   <div class="quote-box" id="quote-box">
     "Loading quote..."
   </div>
 
 <script>
-  const MAX_LENGTH = 150; // The character limit before truncation
+  const MAX_LENGTH = 150;
   const quoteBox = document.getElementById('quote-box');
-  let fullQuoteText = ""; // Variable to hold the complete quote
+  let fullQuoteText = "";
 
   fetch('quotes.txt')
     .then(response => {
@@ -147,15 +291,12 @@
     })
     .then(text => {
       const quotes = text.split('\n').filter(q => q.trim().length > 0);
-
       const now = new Date();
       const yearMonth = now.getFullYear() + '-' + (now.getMonth() + 1);
-
       const savedMonth = localStorage.getItem('quoteMonth');
       const savedQuote = localStorage.getItem('quoteText');
 
       let quoteToUse;
-
       if (savedMonth === yearMonth && savedQuote) {
         quoteToUse = savedQuote;
       } else {
@@ -167,45 +308,29 @@
       fullQuoteText = '"' + quoteToUse + '"';
 
       if (fullQuoteText.length > MAX_LENGTH) {
-        let isFullQuoteDisplayed = false; // New state variable
-
-        // Truncate and set orange border (clickable)
+        let isFullQuoteDisplayed = false;
         const truncatedQuote = fullQuoteText.substring(0, MAX_LENGTH) + '... (Click to continue)';
         quoteBox.innerText = truncatedQuote;
-        quoteBox.classList.add('clickable'); // <-- Orange border added here
-        
-        // Two-stage click logic
-        quoteBox.addEventListener('click', function handler() {
-          if (!isFullQuoteDisplayed) {
-            // Stage 1: Display full quote & CHANGE BORDER TO VANILLA
-            quoteBox.innerText = fullQuoteText + ' (Click to Next Page)';
-            isFullQuoteDisplayed = true;
-            
-            // --- THE NEW LOGIC TO CHANGE COLOR ---
-            quoteBox.classList.remove('clickable');
-            quoteBox.classList.add('ready-to-navigate'); // <-- Vanilla border added here
-            // ------------------------------------
-
-          } else {
-            // Stage 2: Navigate to empty page
-            window.location.href = 'empty.html';
-          }
-        });
-
-      } else {
-        // If the quote is short, the first click navigates directly
-        quoteBox.innerText = fullQuoteText + ' (Click to Next Page)';
         quoteBox.classList.add('clickable');
         
-        // --- NEW LOGIC FOR SHORT QUOTES: Set vanilla immediately ---
-        quoteBox.classList.add('ready-to-navigate'); 
-        // --------------------------------------------------------
-
         quoteBox.addEventListener('click', function handler() {
-            window.location.href = 'empty.html';
+          if (!isFullQuoteDisplayed) {
+            quoteBox.innerText = fullQuoteText + ' (Click to Next Page)';
+            isFullQuoteDisplayed = true;
+            quoteBox.classList.remove('clickable');
+            quoteBox.classList.add('ready-to-navigate');
+          } else {
+            window.location.href = 'quotes.html';
+          }
+        });
+      } else {
+        quoteBox.innerText = fullQuoteText + ' (Click to Next Page)';
+        quoteBox.classList.add('clickable');
+        quoteBox.classList.add('ready-to-navigate'); 
+        quoteBox.addEventListener('click', function handler() {
+            window.location.href = 'quotes.html';
         });
       }
-
     })
     .catch(error => {
       console.error('Error loading quotes:', error);
@@ -216,8 +341,8 @@
 
   <div class="content-wrapper">
     <header>
-      <h1> A passer-by's guide to reality; loss of genie to repetition? </h1>
-      <div class="meta"></div>
+      <h1>A passer-by's guide to reality</h1>
+      <p class="meta">Loss of genie to repetition?</p>
     </header>
 
     <div class="intro">
@@ -228,77 +353,67 @@
     <nav class="toc">
       <strong>Contents</strong>
       <ul>
-        <li><a href="#philosophy"> Why the fuss? On "Philosophy, who needs it?" </a></li>
-        <li><a href="#understanding"> Making sense & life's true metrics: energy, frequency, vibration, scarcity </a></li>
-        <li><a href="#identity"> Controlling the mind: define your own genius </a></li>
-        <li><a href="#guardyourtime"> Guard your time and your dynamics </a></li>
-        <li><a href="#growth"> A new frontier of growth: intangible, everything digital, cyberspace </a></li>
-        <li><a href="#guide"> The ultimate direction </a></li>
-        <li><a href="#johngalt"> "The world you desire can be won." </a></li>
-        <li><a href="#lastgenesis"> The last genesis </a></li>
+        <li><a href="#philosophy">Why the fuss? On "Philosophy, who needs it?"</a></li>
+        <li><a href="#understanding">Making sense & life's true metrics: energy, frequency, vibration, scarcity</a></li>
+        <li><a href="#identity">Controlling the mind: define your own genius</a></li>
+        <li><a href="#guardyourtime">Guard your time and your dynamics</a></li>
+        <li><a href="#growth">A new frontier of growth: intangible, everything digital, cyberspace</a></li>
+        <li><a href="#guide">The ultimate direction</a></li>
+        <li><a href="#johngalt">"The world you desire can be won."</a></li>
+        <li><a href="#lastgenesis">The last genesis</a></li>
       </ul>
     </nav>
 
     <main>
       <section id="philosophy">
-        <h2> Why the fuss? On "Philosophy, who needs it? </h2>
+        <h2>Why the fuss? On "Philosophy, who needs it?"</h2>
         <div class="chapter-meta">empty_date</div>
-        <p> I have been planning to write this "guide" of sorts as part of my own arsenal of reminders that life is something we must enjoy and master all its facets. I will seek to argue to maintain a healthy balance of your biological self and surrounding abstractions of your reality in the midst of the everything-available-all-at-once phenomenon we are experiencing. <br> At present much of your life is <strong> made occupied </strong> by what exactly? Your habits, routines and mental imagery entirely shaped by you, or so we think. Make one logical leap here and we can conclude that during the course of your life your daily routine accounts for most of your actively spent time. Is there an end to this time? Are you happily letting your time go for these routines? What is in it for you? Ever felt frustrated being stuck in doing the same? Well, this blog is definitely not going to help you with that, not unless you want this to help you. <br> Ask yourself before moving forward; and in answering limit the scope of answers for your own good and only your own good. Now I know the idea is wild… but if you tried to *metrify* yourself and established a faithful, realistic pattern based on which you can provide meaning, guidance and direction in your life? How would that make You feel? <br> I don't intend to say all of this is possible, but it surely would make you feel better if you had a bit more volition in your life, right? <br> 
-As you are reading this, I advise that you make notes, reflect on your life and read through this, chapter by chapter as each chapter builds on the previous one. Do not feel frustrated, ignore that life is unfair and it is much better to build on what you have instead of always looking outwards, identifying what you don't have. <br> Except for a select few, we all play by the same rules, same resources, same patterns in life. <br>
-Throughout my text, some of my points will need scientific justification so as to not just make this an empty talk, however I am not always going to coin scientific terms as that would make reading this text pretentious and pathetic. In this understanding, think of science as a means to prove that something objectively works, is as described.
-The solid, known foundations of our physical reality are set and cannot be changed – as per our best knowledge, at the time of writing this – and we all play by the same rules.  <br> 
-I would also like to emphasize here that these texts in my opinion help the most when considered as a reminder, rather than very strict everyday rules to live by. <br> I return to this page when I doubt myself and ponder how and what I should do next... does it make sense? <br> Ayn Rand once said that philosophy is often dismissed as useless.. well not owning one philosophy of life definitely renders You useless... most of all to yourself. <br> Simply put, this whole blog is my philosophy of life. 
-</p>
-      </section>
-      <section id="understanding">
-        <h2>1. Making sense & life's true metrics: energy, frequency, vibration, scarcity </h2>
-        <div class="chapter-meta">empty_date</div>
-        <p> In this chapter we will be focusing what I refer to as <strong> the tyranny of the irrational.</strong> <br>
-        For the longest time our actions have been impacted by our awareness and outcomes of these actions... <br>
-      I want us to think of our actions as utility, but not to the common cause, but to our own cause.</p> Furthermore, energy conservation also applies here and it is the best idea to think of it this way: what problems do I want in life? Problems that keep you in motion but never getting anywhere? If yes. Keep reading. <br>
-      Imagine your problems and options as a circle where arrows from the center go millions of ways. Now the key focus is to reduce the number of arrows and keep the only arrow continuous. <br> The question you should be asking yourself is... am I repeating leisure activities that keep me feeling good? Or do I randomly stumble upon myself thinking... "Hey I am doing this again and I feel bad about that.."? What I would suggest you do is try to keep your mental projections emtpy, don't wander off into emotional spirals, keep it simple, keep it focused. Try to imagine nothing and go from there. Projections never help. <br>
-      What does help is an alignment of your time, energy and frequencies of your actionable interests. Doing something without justification is just self-inflicted martyrdom. So what does one do to escape the trap of that martyrdom? Practice <strong> emotional discipline.</strong>
-      </section>
-      <section id="identity">
-        <h2>2. Controlling the mind: define your own genius & the false trap of mediocrity </h2>
-        <div class="chapter-meta">empty_date</div>
-        <p> Amongst the many factors impacting our identity and genius, only a select few are ours to take. Gender, ethnicity, oftentimes social class are given; not much to do about them. <br>
-        Consequently, it is crucial that we channel our efforts to make the rest count, that is our choices, actions, conscious endavours. <br> If there ever was a phenomenon that overshadows one's forming of an identity, Tocqueville was right to refer to it as the <strong>tyranny of majority</strong>. Learning to think clearly is knowing what is and isn't in control. <br> 
-      I often urge myself to think in essentials, and in relation to those how to think in terms of principles related to them. In other words, think of your actions as tools of thought, a way to contextualize and materialize an idea, experience that idea. How do you do that? You rationalize an end-goal and hopefully associate the proper principles to reach that goal. Then, you assume an attitude, a behavioral pattern to get rid of the societal dogmas associated with that goal. <br>
-    This leaves you with your own actionable plan towards your goal bereft of any external influence. If done well, nothing holds you back at this point and you can always rationalize an actionable next step to reach your goals, stick to a tempo and justify your means. What do you think? <br></p>
-      </section>
-      <section id="guardyourtime">
-        <h2>3. Guard your time and your dynamics </h2>
-        <div class="chapter-meta">empty_date</div>
-        <p>I often, in fact almost every day struggle with proper time management, in the sense that I want to spend my time in the most useful way possible. However this is extremely difficult to perform and oftentimes leads to frustration. I wonder, what is the right move here? <br>
-        As mentioned there is only so much I can influence, right? I have my job... and on top of it? </p> More often than not jobs are repetitive, and require us to assimilate a well-performing set of behavior to maximize efficiency.. now what if you approximated such a behavior to your own good? Clearly this is is easier said, finding your genie is all it takes.
-      </section>
-      <section id="growth">
-        <h2>4. A new frontier of growth: intangible, everything digital, cyberspace </h2>
-        <div class="chapter-meta">empty_date</div>
-        <p></p>
-      </section>
-      <section id="guide">
-        <h2>5. The ultimate direction </h2>
-        <div class="chapter-meta">empty_date</div>
-        <p></p>
-      </section>
-      <section id="johngalt">
-        <h2>6. "The world you desire can be won." </h2> 
-        <div class="chapter-meta">empty_date</div>
-        <p> This section is filled with mantras, ideas and thoughts worth returning to when in doubt. <br>
-        Dr From Atlas here to Dagny, John Galt, Dostoy, Hunga, </p>
-      </section>
-      <section id="lastgenesis">
-        <h2>7. The last genesis </h2>
-        <div class="chapter-meta">empty_date</div>
-        <p> Never in the course of history have we got closer to the point of creating artificial life as in the moment I am writing this. Various studies on perception, cognition and consciousness have been published, yet our means of creation remain the same. Our means of understanding highly remains the same, we define ourselves in relation to other phenomena and my big question is: why would any other way of understanding exist? <br>
-        Just as God, who made us in his image, we are constructing a new intelligence based on our image and understanding. <br>
-      I want you to remember the illustration we had at the beginning of our journey; now this new intelligence can take multiple ways simultaneously with the same efficiency, same speed and with millions more associations and ideas along the way. It can pay all the attention we can't. <br> 
-    As last thought, I would ask you to focus on last genesis not as in our last creation per se, but the last genesis in your life.  <strong> The last genesis of your best self, your ideal self and your most dynamic self. </strong>  </p>
+        <p>I have been planning to write this "guide" of sorts as part of my own arsenal of reminders that life is something we must enjoy and master all its facets. I will seek to argue to maintain a healthy balance of your biological self and surrounding abstractions of your reality in the midst of the everything-available-all-at-once phenomenon we are experiencing.<br><br>At present much of your life is <strong>made occupied</strong> by what exactly? Your habits, routines and mental imagery entirely shaped by you, or so we think. Make one logical leap here and we can conclude that during the course of your life your daily routine accounts for most of your actively spent time. Is there an end to this time? Are you happily letting your time go for these routines? What is in it for you? Ever felt frustrated being stuck in doing the same? Well, this blog is definitely not going to help you with that, not unless you want this to help you.<br><br>Ask yourself before moving forward; and in answering limit the scope of answers for your own good and only your own good. Now I know the idea is wild… but if you tried to *metrify* yourself and established a faithful, realistic pattern based on which you can provide meaning, guidance and direction in your life? How would that make You feel?<br><br>I don't intend to say all of this is possible, but it surely would make you feel better if you had a bit more volition in your life, right?<br><br>As you are reading this, I advise that you make notes, reflect on your life and read through this, chapter by chapter as each chapter builds on the previous one. Do not feel frustrated, ignore that life is unfair and it is much better to build on what you have instead of always looking outwards, identifying what you don't have.<br><br>Except for a select few, we all play by the same rules, same resources, same patterns in life.<br><br>Throughout my text, some of my points will need scientific justification so as to not just make this an empty talk, however I am not always going to coin scientific terms as that would make reading this text pretentious and pathetic. In this understanding, think of science as a means to prove that something objectively works, is as described. The solid, known foundations of our physical reality are set and cannot be changed – as per our best knowledge, at the time of writing this – and we all play by the same rules.<br><br>I would also like to emphasize here that these texts in my opinion help the most when considered as a reminder, rather than very strict everyday rules to live by.<br><br>I return to this page when I doubt myself and ponder how and what I should do next... does it make sense?<br><br>Ayn Rand once said that philosophy is often dismissed as useless.. well not owning one philosophy of life definitely renders You useless... most of all to yourself.<br><br>Simply put, this whole blog is my philosophy of life.</p>
       </section>
 
-      <p><a href="https://akelpieowner.github.io/" target="_blank"> Reflect and share your thoughts here _______ ↗</a></p>
+      <section id="understanding">
+        <h2>1. Making sense & life's true metrics: energy, frequency, vibration, scarcity</h2>
+        <div class="chapter-meta">empty_date</div>
+        <p>In this chapter we will be focusing what I refer to as <strong>the tyranny of the irrational.</strong><br><br>For the longest time our actions have been impacted by our awareness and outcomes of these actions...<br><br>I want us to think of our actions as utility, but not to the common cause, but to our own cause. Furthermore, energy conservation also applies here and it is the best idea to think of it this way: what problems do I want in life? Problems that keep you in motion but never getting anywhere? If yes. Keep reading.<br><br>Imagine your problems and options as a circle where arrows from the center go millions of ways. Now the key focus is to reduce the number of arrows and keep the only arrow continuous.<br><br>The question you should be asking yourself is... am I repeating leisure activities that keep me feeling good? Or do I randomly stumble upon myself thinking... "Hey I am doing this again and I feel bad about that.."? What I would suggest you do is try to keep your mental projections empty, don't wander off into emotional spirals, keep it simple, keep it focused. Try to imagine nothing and go from there. Projections never help.<br><br>What does help is an alignment of your time, energy and frequencies of your actionable interests. Doing something without justification is just self-inflicted martyrdom. So what does one do to escape the trap of that martyrdom? Practice <strong>emotional discipline.</strong></p>
+      </section>
+
+      <section id="identity">
+        <h2>2. Controlling the mind: define your own genius & the false trap of mediocrity</h2>
+        <div class="chapter-meta">empty_date</div>
+        <p>Amongst the many factors impacting our identity and genius, only a select few are ours to take. Gender, ethnicity, oftentimes social class are given; not much to do about them.<br><br>Consequently, it is crucial that we channel our efforts to make the rest count, that is our choices, actions, conscious endeavours.<br><br>If there ever was a phenomenon that overshadows one's forming of an identity, Tocqueville was right to refer to it as the <strong>tyranny of majority</strong>. Learning to think clearly is knowing what is and isn't in control.<br><br>I often urge myself to think in essentials, and in relation to those how to think in terms of principles related to them. In other words, think of your actions as tools of thought, a way to contextualize and materialize an idea, experience that idea. How do you do that? You rationalize an end-goal and hopefully associate the proper principles to reach that goal. Then, you assume an attitude, a behavioral pattern to get rid of the societal dogmas associated with that goal.<br><br>This leaves you with your own actionable plan towards your goal bereft of any external influence. If done well, nothing holds you back at this point and you can always rationalize an actionable next step to reach your goals, stick to a tempo and justify your means. What do you think?</p>
+      </section>
+
+      <section id="guardyourtime">
+        <h2>3. Guard your time and your dynamics</h2>
+        <div class="chapter-meta">empty_date</div>
+        <p>I often, in fact almost every day struggle with proper time management, in the sense that I want to spend my time in the most useful way possible. However this is extremely difficult to perform and oftentimes leads to frustration. I wonder, what is the right move here?<br><br>As mentioned there is only so much I can influence, right? I have my job... and on top of it? More often than not jobs are repetitive, and require us to assimilate a well-performing set of behavior to maximize efficiency.. now what if you approximated such a behavior to your own good? Clearly this is is easier said, finding your genie is all it takes.</p>
+      </section>
+
+      <section id="growth">
+        <h2>4. A new frontier of growth: intangible, everything digital, cyberspace</h2>
+        <div class="chapter-meta">empty_date</div>
+        <p></p>
+      </section>
+
+      <section id="guide">
+        <h2>5. The ultimate direction</h2>
+        <div class="chapter-meta">empty_date</div>
+        <p></p>
+      </section>
+
+      <section id="johngalt">
+        <h2>6. "The world you desire can be won."</h2> 
+        <div class="chapter-meta">empty_date</div>
+        <p>This section is filled with mantras, ideas and thoughts worth returning to when in doubt.<br><br>Dr From Atlas here to Dagny, John Galt, Dostoy, Hunga,</p>
+      </section>
+
+      <section id="lastgenesis">
+        <h2>7. The last genesis</h2>
+        <div class="chapter-meta">empty_date</div>
+        <p>Never in the course of history have we got closer to the point of creating artificial life as in the moment I am writing this. Various studies on perception, cognition and consciousness have been published, yet our means of creation remain the same. Our means of understanding highly remains the same, we define ourselves in relation to other phenomena and my big question is: why would any other way of understanding exist?<br><br>Just as God, who made us in his image, we are constructing a new intelligence based on our image and understanding.<br><br>I want you to remember the illustration we had at the beginning of our journey; now this new intelligence can take multiple ways simultaneously with the same efficiency, same speed and with millions more associations and ideas along the way. It can pay all the attention we can't.<br><br>As last thought, I would ask you to focus on last genesis not as in our last creation per se, but the last genesis in your life. <strong>The last genesis of your best self, your ideal self and your most dynamic self.</strong></p>
+      </section>
+
+      <p><a href="https://akelpieowner.github.io/" target="_blank">Reflect and share your thoughts here _______ ↗</a></p>
     </main>
 
     <footer>
