@@ -273,7 +273,7 @@
 
 <body>
 
-  <a href="quotes.html" class="top-button">Quotes & Reflections</a>
+  <a href="./quotes.html" class="top-button">Quotes & Reflections</a>
 
   <div class="quote-box" id="quote-box">
     "Loading quote..."
@@ -284,7 +284,7 @@
   const quoteBox = document.getElementById('quote-box');
   let fullQuoteText = "";
 
-  fetch('quotes.txt')
+  fetch('./quotes.txt')
     .then(response => {
       if (!response.ok) throw new Error("File not found");
       return response.text();
@@ -320,7 +320,7 @@
             quoteBox.classList.remove('clickable');
             quoteBox.classList.add('ready-to-navigate');
           } else {
-            window.location.href = 'quotes.html';
+            window.location.href = './quotes.html';
           }
         });
       } else {
@@ -328,7 +328,7 @@
         quoteBox.classList.add('clickable');
         quoteBox.classList.add('ready-to-navigate'); 
         quoteBox.addEventListener('click', function handler() {
-            window.location.href = 'quotes.html';
+            window.location.href = './quotes.html';
         });
       }
     })

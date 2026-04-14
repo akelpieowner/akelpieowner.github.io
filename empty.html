@@ -194,7 +194,7 @@
       </div>
 
       <div class="button-container">
-        <a href="index.html" class="return-button">
+        <a href="./index.html" class="return-button">
           Go Back to the Guide
         </a>
       </div>
@@ -203,7 +203,7 @@
 
   <script>
     // Load quotes from quotes.txt
-    fetch('quotes.txt')
+    fetch('./quotes.txt')
       .then(response => {
         if (!response.ok) throw new Error("File not found");
         return response.text();
