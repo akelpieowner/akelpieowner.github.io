@@ -273,7 +273,7 @@
 
 <body>
 
-  <a href="./quotes.html" class="top-button">Quotes & Reflections</a>
+  <a href="./empty.html" class="top-button">Quotes & Reflections</a>
 
   <div class="quote-box" id="quote-box">
     "Loading quote..."
@@ -320,7 +320,7 @@
             quoteBox.classList.remove('clickable');
             quoteBox.classList.add('ready-to-navigate');
           } else {
-            window.location.href = './quotes.html';
+            window.location.href = './empty.html';
           }
         });
       } else {
@@ -328,7 +328,7 @@
         quoteBox.classList.add('clickable');
         quoteBox.classList.add('ready-to-navigate'); 
         quoteBox.addEventListener('click', function handler() {
-            window.location.href = './quotes.html';
+            window.location.href = './empty.html';
         });
       }
     })
