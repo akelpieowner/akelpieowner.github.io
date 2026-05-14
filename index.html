@@ -8,318 +8,93 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=Space+Mono&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-
     :root {
-      --ink: #0d0d0d;
-      --paper: #f5f2ec;
-      --accent: #c0392b;
-      --accent2: #2c3e6b;
-      --muted: #7a7469;
-      --border: #d8d3ca;
-      --card-bg: #ffffff;
+      --ink: #0d0d0d; --paper: #f5f2ec; --accent: #c0392b;
+      --accent2: #2c3e6b; --muted: #7a7469; --border: #d8d3ca; --card-bg: #ffffff;
     }
-
-    html { font-size: 16px; }
-
-    body {
-      background: var(--paper);
-      color: var(--ink);
-      font-family: 'DM Sans', sans-serif;
-      font-weight: 300;
-      line-height: 1.7;
-      min-height: 100vh;
-    }
-
-    /* ── HEADER ── */
+    body { background: var(--paper); color: var(--ink); font-family: 'DM Sans', sans-serif; font-weight: 300; line-height: 1.7; min-height: 100vh; }
     .site-header {
-      border-bottom: 2px solid var(--ink);
-      padding: 0 40px;
-      display: flex;
-      align-items: stretch;
-      justify-content: space-between;
-      background: var(--paper);
-      position: sticky;
-      top: 0;
-      z-index: 100;
+      border-bottom: 2px solid var(--ink); padding: 0 40px;
+      display: flex; align-items: stretch; justify-content: space-between;
+      background: var(--paper); position: sticky; top: 0; z-index: 100;
     }
-
     .site-title {
-      font-family: 'DM Serif Display', serif;
-      font-size: 1.1rem;
-      letter-spacing: 0.02em;
-      padding: 18px 0;
-      text-decoration: none;
-      color: var(--ink);
-      display: flex;
-      align-items: center;
-      gap: 10px;
+      font-family: 'DM Serif Display', serif; font-size: 1.1rem;
+      padding: 18px 0; text-decoration: none; color: var(--ink);
+      display: flex; align-items: center; gap: 10px;
     }
-
-    .site-title .issue-badge {
-      font-family: 'Space Mono', monospace;
-      font-size: 0.65rem;
-      background: var(--ink);
-      color: var(--paper);
-      padding: 2px 7px;
-      border-radius: 2px;
-      letter-spacing: 0.08em;
+    .site-title .badge {
+      font-family: 'Space Mono', monospace; font-size: 0.65rem;
+      background: var(--ink); color: var(--paper); padding: 2px 7px; border-radius: 2px; letter-spacing: 0.08em;
     }
-
-    .header-nav {
-      display: flex;
-      align-items: center;
-      gap: 0;
-    }
-
+    .header-nav { display: flex; align-items: center; }
     .header-nav a {
-      font-family: 'Space Mono', monospace;
-      font-size: 0.7rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      text-decoration: none;
-      color: var(--muted);
-      padding: 0 18px;
-      height: 100%;
-      display: flex;
-      align-items: center;
-      border-left: 1px solid var(--border);
-      transition: color 0.2s, background 0.2s;
+      font-family: 'Space Mono', monospace; font-size: 0.7rem;
+      letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none;
+      color: var(--muted); padding: 0 18px; height: 100%; display: flex;
+      align-items: center; border-left: 1px solid var(--border); transition: color 0.2s, background 0.2s;
     }
-
     .header-nav a:hover { color: var(--ink); background: rgba(0,0,0,0.04); }
-
-    /* ── HERO ── */
-    .hero {
-      max-width: 860px;
-      margin: 80px auto 60px;
-      padding: 0 40px;
-    }
-
+    .hero { max-width: 860px; margin: 80px auto 60px; padding: 0 40px; }
     .hero-eyebrow {
-      font-family: 'Space Mono', monospace;
-      font-size: 0.7rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 18px;
+      font-family: 'Space Mono', monospace; font-size: 0.7rem;
+      letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); margin-bottom: 18px;
     }
-
-    .hero-title {
-      font-family: 'DM Serif Display', serif;
-      font-size: clamp(2.6rem, 6vw, 4.2rem);
-      line-height: 1.08;
-      letter-spacing: -0.01em;
-      color: var(--ink);
-      margin-bottom: 28px;
-    }
-
-    .hero-title em {
-      font-style: italic;
-      color: var(--accent2);
-    }
-
-    .hero-intro {
-      font-size: 1.1rem;
-      color: var(--muted);
-      max-width: 560px;
-      line-height: 1.75;
-      border-left: 3px solid var(--accent);
-      padding-left: 20px;
-      margin-bottom: 10px;
-    }
-
-    .hero-quote {
-      margin-top: 32px;
-      font-family: 'DM Serif Display', serif;
-      font-style: italic;
-      font-size: 1.05rem;
-      color: var(--accent2);
-      max-width: 600px;
-      line-height: 1.6;
-    }
-
-    /* ── SECTION LABEL ── */
-    .section-label {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 0 40px;
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      margin-bottom: 32px;
-    }
-
-    .section-label span {
-      font-family: 'Space Mono', monospace;
-      font-size: 0.7rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--muted);
-    }
-
-    .section-label::after {
-      content: '';
-      flex: 1;
-      height: 1px;
-      background: var(--border);
-    }
-
-    /* ── GRID ── */
+    .hero-title { font-family: 'DM Serif Display', serif; font-size: clamp(2.6rem, 6vw, 4.2rem); line-height: 1.08; color: var(--ink); margin-bottom: 28px; }
+    .hero-title em { font-style: italic; color: var(--accent2); }
+    .hero-intro { font-size: 1.1rem; color: var(--muted); max-width: 560px; line-height: 1.75; border-left: 3px solid var(--accent); padding-left: 20px; margin-bottom: 10px; }
+    .hero-quote { margin-top: 32px; font-family: 'DM Serif Display', serif; font-style: italic; font-size: 1.05rem; color: var(--accent2); max-width: 600px; line-height: 1.6; }
+    .section-label { max-width: 1100px; margin: 0 auto 24px; padding: 0 40px; display: flex; align-items: center; gap: 16px; }
+    .section-label span { font-family: 'Space Mono', monospace; font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); white-space: nowrap; }
+    .section-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
     .chapters-grid {
-      max-width: 1100px;
-      margin: 0 auto 100px;
-      padding: 0 40px;
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 1px;
-      background: var(--border);
-      border: 1px solid var(--border);
+      max-width: 1100px; margin: 0 auto 100px; padding: 0 40px;
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1px; background: var(--border); border: 1px solid var(--border);
     }
-
-    /* ── CHAPTER CARD ── */
     .chapter-card {
-      background: var(--card-bg);
-      padding: 32px 28px 28px;
-      text-decoration: none;
-      color: inherit;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      transition: background 0.2s;
-      position: relative;
-      overflow: hidden;
-      min-height: 220px;
+      background: var(--card-bg); padding: 32px 28px 28px;
+      text-decoration: none; color: inherit;
+      display: flex; flex-direction: column; gap: 12px;
+      transition: background 0.2s; position: relative; min-height: 220px;
     }
-
     .chapter-card::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 3px;
-      background: var(--accent);
-      transform: scaleX(0);
-      transform-origin: left;
-      transition: transform 0.3s ease;
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: var(--accent); transform: scaleX(0); transform-origin: left; transition: transform 0.3s ease;
     }
-
     .chapter-card:hover { background: #faf8f4; }
     .chapter-card:hover::before { transform: scaleX(1); }
-
-    .card-number {
-      font-family: 'Space Mono', monospace;
-      font-size: 0.68rem;
-      color: var(--muted);
-      letter-spacing: 0.1em;
-    }
-
-    .card-number strong {
-      color: var(--accent);
-      font-weight: 400;
-    }
-
-    .card-title {
-      font-family: 'DM Serif Display', serif;
-      font-size: 1.3rem;
-      line-height: 1.25;
-      color: var(--ink);
-      letter-spacing: -0.01em;
-      flex: 1;
-    }
-
-    .card-desc {
-      font-size: 0.88rem;
-      color: var(--muted);
-      line-height: 1.6;
-    }
-
-    .card-tag {
-      font-family: 'Space Mono', monospace;
-      font-size: 0.6rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--accent2);
-      opacity: 0.7;
-    }
-
-    /* intro card — full width */
+    .card-number { font-family: 'Space Mono', monospace; font-size: 0.68rem; color: var(--muted); letter-spacing: 0.1em; }
+    .card-number strong { color: var(--accent); font-weight: 400; }
+    .card-title { font-family: 'DM Serif Display', serif; font-size: 1.3rem; line-height: 1.25; color: var(--ink); flex: 1; }
+    .card-desc { font-size: 0.88rem; color: var(--muted); line-height: 1.6; }
+    .card-tag { font-family: 'Space Mono', monospace; font-size: 0.6rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent2); opacity: 0.7; }
     .chapter-card.intro {
-      grid-column: 1 / -1;
-      background: var(--ink);
-      color: var(--paper);
-      min-height: 160px;
-      flex-direction: row;
-      align-items: flex-start;
-      gap: 40px;
+      grid-column: 1 / -1; background: var(--ink); color: var(--paper);
+      min-height: 160px; flex-direction: row; align-items: flex-start; gap: 40px;
     }
-
     .chapter-card.intro:hover { background: #1a1a1a; }
-
     .chapter-card.intro .card-number { color: rgba(245,242,236,0.4); }
     .chapter-card.intro .card-number strong { color: #e8a090; }
     .chapter-card.intro .card-title { color: var(--paper); font-size: 1.6rem; }
     .chapter-card.intro .card-desc { color: rgba(245,242,236,0.65); }
     .chapter-card.intro .card-tag { color: #a8b8d8; }
-
     .intro-left { flex: 0 0 auto; }
     .intro-right { flex: 1; }
-
-    /* empty card */
-    .chapter-card.empty {
-      background: #faf8f4;
-      opacity: 0.5;
-      pointer-events: none;
-    }
-
+    .chapter-card.empty { background: #faf8f4; opacity: 0.5; pointer-events: none; }
     .chapter-card.empty .card-title { color: var(--muted); font-style: italic; }
-
-    /* ── FOOTER ── */
-    footer {
-      border-top: 1px solid var(--border);
-      padding: 40px;
-      text-align: center;
-      font-family: 'Space Mono', monospace;
-      font-size: 0.65rem;
-      letter-spacing: 0.12em;
-      color: var(--muted);
-      text-transform: uppercase;
-    }
-
-    /* ── FLOATING QUOTE ── */
     .quote-sidebar {
-      position: fixed;
-      bottom: 40px;
-      right: 40px;
-      width: 240px;
-      font-family: 'DM Serif Display', serif;
-      font-style: italic;
-      font-size: 0.88rem;
-      line-height: 1.6;
-      color: var(--ink);
-      background: var(--paper);
-      border: 1px solid var(--border);
-      border-left: 3px solid var(--accent2);
-      padding: 16px 18px;
-      cursor: pointer;
-      transition: box-shadow 0.2s;
-      z-index: 50;
+      position: fixed; bottom: 40px; right: 40px; width: 240px;
+      font-family: 'DM Serif Display', serif; font-style: italic; font-size: 0.88rem;
+      line-height: 1.6; color: var(--ink); background: var(--paper);
+      border: 1px solid var(--border); border-left: 3px solid var(--accent2);
+      padding: 16px 18px; cursor: pointer; transition: box-shadow 0.2s; z-index: 50;
     }
-
     .quote-sidebar:hover { box-shadow: 4px 4px 0 var(--ink); }
-
-    .quote-sidebar .qs-label {
-      font-family: 'Space Mono', monospace;
-      font-style: normal;
-      font-size: 0.6rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 8px;
-    }
-
+    .quote-sidebar .qs-label { font-family: 'Space Mono', monospace; font-style: normal; font-size: 0.6rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
+    footer { border-top: 1px solid var(--border); padding: 40px; text-align: center; font-family: 'Space Mono', monospace; font-size: 0.65rem; letter-spacing: 0.12em; color: var(--muted); text-transform: uppercase; }
     @media (max-width: 720px) {
-      .site-header { padding: 0 20px; }
-      .hero { padding: 0 20px; margin: 50px auto 40px; }
-      .section-label { padding: 0 20px; }
+      .site-header, .hero, .section-label { padding-left: 20px; padding-right: 20px; }
       .chapters-grid { padding: 0 20px; grid-template-columns: 1fr; margin-bottom: 60px; }
       .chapter-card.intro { flex-direction: column; gap: 16px; }
       .quote-sidebar { display: none; }
@@ -329,143 +104,106 @@
 </head>
 <body>
 
-  <!-- HEADER -->
-  <header class="site-header">
-    <a class="site-title" href="./index.html">
-      A Passer-by's Guide to Reality
-      <span class="issue-badge">Guide</span>
-    </a>
-    <nav class="header-nav">
-      <a href="./empty.html">Quotes &amp; Reflections</a>
-    </nav>
-  </header>
+<header class="site-header">
+  <a class="site-title" href="./index.html">A Passer-by's Guide to Reality <span class="badge">Guide</span></a>
+  <nav class="header-nav">
+    <a href="./empty.html">Quotes &amp; Reflections</a>
+  </nav>
+</header>
 
-  <!-- HERO -->
-  <section class="hero">
-    <div class="hero-eyebrow">Personal philosophy · 8 chapters</div>
-    <h1 class="hero-title">A passer-by's<br>guide to <em>reality</em></h1>
-    <p class="hero-intro">A definite, transactional and finite endeavour — on reclaiming volition, identity, and your own genius.</p>
-    <blockquote class="hero-quote">"Is there more to life than what we give to it? Can we approximate the extent of what we don't know? The answer to both: NO."</blockquote>
-  </section>
+<section class="hero">
+  <div class="hero-eyebrow">Personal philosophy · 8 chapters</div>
+  <h1 class="hero-title">A passer-by's<br>guide to <em>reality</em></h1>
+  <p class="hero-intro">A definite, transactional and finite endeavour — on reclaiming volition, identity, and your own genius.</p>
+  <blockquote class="hero-quote">"Is there more to life than what we give to it? Can we approximate the extent of what we don't know? The answer to both: NO."</blockquote>
+</section>
 
-  <!-- GRID -->
-  <div class="section-label">
-    <span>Chapters</span>
-  </div>
+<div class="section-label"><span>Chapters</span></div>
 
-  <main class="chapters-grid" id="chapters">
+<main class="chapters-grid">
 
-    <!-- #0 — intro / full-width -->
-    <a href="./index.html#philosophy" class="chapter-card intro">
-      <div class="intro-left">
-        <div class="card-number"># <strong>00</strong></div>
-      </div>
-      <div class="intro-right">
-        <div class="card-title">Why the fuss? On "Philosophy, who needs it?"</div>
-        <div class="card-desc">The whole blog is my philosophy of life. Not owning one philosophy of life definitely renders you useless — most of all to yourself.</div>
-        <div class="card-tag" style="margin-top:16px;">Intro · Ayn Rand · Foundation</div>
-      </div>
-    </a>
+  <a href="./chapter-00.html" class="chapter-card intro">
+    <div class="intro-left"><div class="card-number"># <strong>00</strong></div></div>
+    <div class="intro-right">
+      <div class="card-title">Why the fuss? On "Philosophy, who needs it?"</div>
+      <div class="card-desc">The whole blog is my philosophy of life. Not owning one philosophy of life definitely renders you useless — most of all to yourself.</div>
+      <div class="card-tag" style="margin-top:16px;">Intro · Ayn Rand · Foundation</div>
+    </div>
+  </a>
 
-    <!-- #1 -->
-    <a href="./index.html#understanding" class="chapter-card">
-      <div class="card-number"># <strong>01</strong></div>
-      <div class="card-title">Making sense &amp; life's true metrics</div>
-      <div class="card-desc">Energy, frequency, vibration, scarcity — and the tyranny of the irrational.</div>
-      <div class="card-tag">Emotional discipline · Utility</div>
-    </a>
+  <a href="./chapter-01.html" class="chapter-card">
+    <div class="card-number"># <strong>01</strong></div>
+    <div class="card-title">Making sense &amp; life's true metrics</div>
+    <div class="card-desc">Energy, frequency, vibration, scarcity — and the tyranny of the irrational.</div>
+    <div class="card-tag">Emotional discipline · Utility</div>
+  </a>
 
-    <!-- #2 -->
-    <a href="./index.html#identity" class="chapter-card">
-      <div class="card-number"># <strong>02</strong></div>
-      <div class="card-title">Controlling the mind: define your own genius</div>
-      <div class="card-desc">The false trap of mediocrity, the tyranny of majority, and how to think in essentials.</div>
-      <div class="card-tag">Identity · Tocqueville · Principles</div>
-    </a>
+  <a href="./chapter-02.html" class="chapter-card">
+    <div class="card-number"># <strong>02</strong></div>
+    <div class="card-title">Controlling the mind: define your own genius</div>
+    <div class="card-desc">The false trap of mediocrity, the tyranny of majority, and how to think in essentials.</div>
+    <div class="card-tag">Identity · Tocqueville · Principles</div>
+  </a>
 
-    <!-- #3 -->
-    <a href="./index.html#guardyourtime" class="chapter-card">
-      <div class="card-number"># <strong>03</strong></div>
-      <div class="card-title">Guard your time and your dynamics</div>
-      <div class="card-desc">On approximating your best behavioural pattern — and actually finding your genie.</div>
-      <div class="card-tag">Time · Focus · Routine</div>
-    </a>
+  <a href="./chapter-03.html" class="chapter-card">
+    <div class="card-number"># <strong>03</strong></div>
+    <div class="card-title">Guard your time and your dynamics</div>
+    <div class="card-desc">On approximating your best behavioural pattern — and actually finding your genie.</div>
+    <div class="card-tag">Time · Focus · Routine</div>
+  </a>
 
-    <!-- #4 — empty -->
-    <a href="./index.html#growth" class="chapter-card empty">
-      <div class="card-number"># <strong>04</strong></div>
-      <div class="card-title">A new frontier of growth</div>
-      <div class="card-desc">Intangible, everything digital, cyberspace. Coming soon.</div>
-      <div class="card-tag">Digital · Cyberspace</div>
-    </a>
+  <a href="./chapter-04.html" class="chapter-card empty">
+    <div class="card-number"># <strong>04</strong></div>
+    <div class="card-title">A new frontier of growth</div>
+    <div class="card-desc">Intangible, everything digital, cyberspace. Coming soon.</div>
+    <div class="card-tag">Digital · Cyberspace</div>
+  </a>
 
-    <!-- #5 — empty -->
-    <a href="./index.html#guide" class="chapter-card empty">
-      <div class="card-number"># <strong>05</strong></div>
-      <div class="card-title">The ultimate direction</div>
-      <div class="card-desc">Coming soon.</div>
-      <div class="card-tag">Direction</div>
-    </a>
+  <a href="./chapter-05.html" class="chapter-card empty">
+    <div class="card-number"># <strong>05</strong></div>
+    <div class="card-title">The ultimate direction</div>
+    <div class="card-desc">Coming soon.</div>
+    <div class="card-tag">Direction</div>
+  </a>
 
-    <!-- #6 -->
-    <a href="./index.html#johngalt" class="chapter-card">
-      <div class="card-number"># <strong>06</strong></div>
-      <div class="card-title">"The world you desire can be won."</div>
-      <div class="card-desc">Mantras, ideas and thoughts worth returning to when in doubt. John Galt, Dostoyevsky and more.</div>
-      <div class="card-tag">Mantras · Atlas Shrugged</div>
-    </a>
+  <a href="./chapter-06.html" class="chapter-card">
+    <div class="card-number"># <strong>06</strong></div>
+    <div class="card-title">"The world you desire can be won."</div>
+    <div class="card-desc">Mantras, ideas and thoughts worth returning to when in doubt. John Galt, Dostoyevsky and more.</div>
+    <div class="card-tag">Mantras · Atlas Shrugged</div>
+  </a>
 
-    <!-- #7 -->
-    <a href="./index.html#lastgenesis" class="chapter-card">
-      <div class="card-number"># <strong>07</strong></div>
-      <div class="card-title">The last genesis</div>
-      <div class="card-desc">On artificial intelligence, consciousness, and the final genesis of your best, most dynamic self.</div>
-      <div class="card-tag">AI · Consciousness · Self</div>
-    </a>
+  <a href="./chapter-07.html" class="chapter-card">
+    <div class="card-number"># <strong>07</strong></div>
+    <div class="card-title">The last genesis</div>
+    <div class="card-desc">On artificial intelligence, consciousness, and the final genesis of your best, most dynamic self.</div>
+    <div class="card-tag">AI · Consciousness · Self</div>
+  </a>
 
-  </main>
+</main>
 
-  <!-- FLOATING QUOTE -->
-  <div class="quote-sidebar" id="quote-sidebar" onclick="window.location.href='./empty.html'">
-    <div class="qs-label">Quote of the month ↗</div>
-    <div id="qs-text">Loading…</div>
-  </div>
+<div class="quote-sidebar" id="quote-sidebar" onclick="window.location.href='./empty.html'">
+  <div class="qs-label">Quote of the month ↗</div>
+  <div id="qs-text">Loading…</div>
+</div>
 
-  <footer>
-    Inspired by Tangerine Dream &nbsp;·&nbsp; Zima Blue &nbsp;·&nbsp; My own genius
-  </footer>
+<footer>Inspired by Tangerine Dream &nbsp;·&nbsp; Zima Blue &nbsp;·&nbsp; My own genius</footer>
 
-  <!-- FULL CHAPTER TEXT (hidden; used when jumping to anchors) -->
-  <!-- Keeping the original sections accessible via anchor links -->
-  <div style="display:none">
-    <section id="philosophy"></section>
-    <section id="understanding"></section>
-    <section id="identity"></section>
-    <section id="guardyourtime"></section>
-    <section id="growth"></section>
-    <section id="guide"></section>
-    <section id="johngalt"></section>
-    <section id="lastgenesis"></section>
-  </div>
-
-  <script>
-    const MAX_LENGTH = 120;
-    const qsText = document.getElementById('qs-text');
-
-    fetch('./quotes.txt')
-      .then(r => { if (!r.ok) throw new Error(); return r.text(); })
-      .then(text => {
-        const quotes = text.split('\n').filter(q => q.trim().length > 0);
-        const ym = new Date().getFullYear() + '-' + (new Date().getMonth() + 1);
-        let q = localStorage.getItem('quoteMonth') === ym && localStorage.getItem('quoteText')
-          ? localStorage.getItem('quoteText')
-          : quotes[Math.floor(Math.random() * quotes.length)];
-        localStorage.setItem('quoteMonth', ym);
-        localStorage.setItem('quoteText', q);
-        qsText.textContent = '\u201c' + (q.length > MAX_LENGTH ? q.substring(0, MAX_LENGTH) + '\u2026' : q) + '\u201d';
-      })
-      .catch(() => { qsText.textContent = 'Loss of genie to repetition?'; });
-  </script>
-
+<script>
+  fetch('./quotes.txt')
+    .then(r => { if (!r.ok) throw new Error(); return r.text(); })
+    .then(text => {
+      const quotes = text.split('\n').filter(q => q.trim().length > 0);
+      const ym = new Date().getFullYear() + '-' + (new Date().getMonth() + 1);
+      let q = localStorage.getItem('quoteMonth') === ym && localStorage.getItem('quoteText')
+        ? localStorage.getItem('quoteText')
+        : quotes[Math.floor(Math.random() * quotes.length)];
+      localStorage.setItem('quoteMonth', ym);
+      localStorage.setItem('quoteText', q);
+      const MAX = 120;
+      document.getElementById('qs-text').textContent = '\u201c' + (q.length > MAX ? q.substring(0, MAX) + '\u2026' : q) + '\u201d';
+    })
+    .catch(() => { document.getElementById('qs-text').textContent = 'Loss of genie to repetition?'; });
+</script>
 </body>
 </html>

@@ -8,275 +8,63 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=Space+Mono&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-
     :root {
-      --ink: #0d0d0d;
-      --paper: #f5f2ec;
-      --accent: #c0392b;
-      --accent2: #2c3e6b;
-      --muted: #7a7469;
-      --border: #d8d3ca;
-      --card-bg: #ffffff;
+      --ink: #0d0d0d; --paper: #f5f2ec; --accent: #c0392b;
+      --accent2: #2c3e6b; --muted: #7a7469; --border: #d8d3ca; --card-bg: #ffffff;
     }
-
-    body {
-      background: var(--paper);
-      color: var(--ink);
-      font-family: 'DM Sans', sans-serif;
-      font-weight: 300;
-      line-height: 1.7;
-      min-height: 100vh;
-    }
-
-    /* ── HEADER ── */
+    body { background: var(--paper); color: var(--ink); font-family: 'DM Sans', sans-serif; font-weight: 300; line-height: 1.7; min-height: 100vh; }
     .site-header {
-      border-bottom: 2px solid var(--ink);
-      padding: 0 40px;
-      display: flex;
-      align-items: stretch;
-      justify-content: space-between;
-      background: var(--paper);
-      position: sticky;
-      top: 0;
-      z-index: 100;
+      border-bottom: 2px solid var(--ink); padding: 0 40px;
+      display: flex; align-items: stretch; justify-content: space-between;
+      background: var(--paper); position: sticky; top: 0; z-index: 100;
     }
-
-    .site-title {
-      font-family: 'DM Serif Display', serif;
-      font-size: 1.1rem;
-      letter-spacing: 0.02em;
-      padding: 18px 0;
-      text-decoration: none;
-      color: var(--ink);
-    }
-
-    .header-nav {
-      display: flex;
-      align-items: center;
-    }
-
+    .site-title { font-family: 'DM Serif Display', serif; font-size: 1.1rem; padding: 18px 0; text-decoration: none; color: var(--ink); }
+    .header-nav { display: flex; align-items: center; }
     .header-nav a {
-      font-family: 'Space Mono', monospace;
-      font-size: 0.7rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      text-decoration: none;
-      color: var(--muted);
-      padding: 0 18px;
-      height: 100%;
-      display: flex;
-      align-items: center;
-      border-left: 1px solid var(--border);
-      transition: color 0.2s, background 0.2s;
+      font-family: 'Space Mono', monospace; font-size: 0.7rem;
+      letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none;
+      color: var(--muted); padding: 0 18px; height: 100%; display: flex;
+      align-items: center; border-left: 1px solid var(--border); transition: color 0.2s, background 0.2s;
     }
-
     .header-nav a:hover { color: var(--ink); background: rgba(0,0,0,0.04); }
-
-    /* ── HERO ── */
-    .hero {
-      max-width: 860px;
-      margin: 70px auto 50px;
-      padding: 0 40px;
-    }
-
-    .hero-eyebrow {
-      font-family: 'Space Mono', monospace;
-      font-size: 0.7rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--accent2);
-      margin-bottom: 14px;
-    }
-
-    .hero-title {
-      font-family: 'DM Serif Display', serif;
-      font-size: clamp(2.2rem, 5vw, 3.4rem);
-      line-height: 1.1;
-      margin-bottom: 18px;
-    }
-
-    .hero-sub {
-      font-size: 0.92rem;
-      color: var(--muted);
-      font-family: 'Space Mono', monospace;
-    }
-
-    /* ── SECTION LABEL ── */
-    .section-label {
-      max-width: 1100px;
-      margin: 0 auto 24px;
-      padding: 0 40px;
-      display: flex;
-      align-items: center;
-      gap: 16px;
-    }
-
-    .section-label span {
-      font-family: 'Space Mono', monospace;
-      font-size: 0.7rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--muted);
-      white-space: nowrap;
-    }
-
-    .section-label::after {
-      content: '';
-      flex: 1;
-      height: 1px;
-      background: var(--border);
-    }
-
-    /* ── QUOTES GRID ── */
+    .hero { max-width: 860px; margin: 70px auto 50px; padding: 0 40px; }
+    .hero-eyebrow { font-family: 'Space Mono', monospace; font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent2); margin-bottom: 14px; }
+    .hero-title { font-family: 'DM Serif Display', serif; font-size: clamp(2.2rem, 5vw, 3.4rem); line-height: 1.1; margin-bottom: 14px; }
+    .hero-sub { font-size: 0.88rem; color: var(--muted); font-family: 'Space Mono', monospace; }
+    .section-label { max-width: 1100px; margin: 0 auto 24px; padding: 0 40px; display: flex; align-items: center; gap: 16px; }
+    .section-label span { font-family: 'Space Mono', monospace; font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); white-space: nowrap; }
+    .section-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
     .quotes-grid {
-      max-width: 1100px;
-      margin: 0 auto 80px;
-      padding: 0 40px;
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 1px;
-      background: var(--border);
-      border: 1px solid var(--border);
+      max-width: 1100px; margin: 0 auto 60px; padding: 0 40px;
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1px; background: var(--border); border: 1px solid var(--border);
     }
-
-    .loading-msg {
-      grid-column: 1 / -1;
-      background: var(--card-bg);
-      padding: 60px;
-      text-align: center;
-      font-family: 'Space Mono', monospace;
-      font-size: 0.75rem;
-      color: var(--muted);
-      letter-spacing: 0.08em;
-    }
-
-    /* ── QUOTE CARD ── */
+    .loading-msg { grid-column: 1 / -1; background: var(--card-bg); padding: 60px; text-align: center; font-family: 'Space Mono', monospace; font-size: 0.75rem; color: var(--muted); letter-spacing: 0.08em; }
     .quote-card {
-      background: var(--card-bg);
-      padding: 28px 26px;
-      cursor: pointer;
-      transition: background 0.2s;
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
+      background: var(--card-bg); padding: 28px 26px;
+      cursor: pointer; transition: background 0.2s;
+      position: relative; display: flex; flex-direction: column; gap: 10px;
     }
-
     .quote-card::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 3px;
-      background: var(--accent2);
-      transform: scaleX(0);
-      transform-origin: left;
-      transition: transform 0.3s ease;
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: var(--accent2); transform: scaleX(0); transform-origin: left; transition: transform 0.3s ease;
     }
-
     .quote-card:hover { background: #faf8f4; }
     .quote-card:hover::before { transform: scaleX(1); }
-
-    .quote-card.open {
-      background: #faf8f4;
-    }
-
+    .quote-card.open { background: #faf8f4; }
     .quote-card.open::before { transform: scaleX(1); background: var(--accent); }
-
-    .q-index {
-      font-family: 'Space Mono', monospace;
-      font-size: 0.62rem;
-      color: var(--muted);
-      letter-spacing: 0.08em;
-      margin-bottom: 4px;
-    }
-
-    .q-text {
-      font-family: 'DM Serif Display', serif;
-      font-style: italic;
-      font-size: 1.05rem;
-      line-height: 1.55;
-      color: var(--ink);
-    }
-
-    .q-expand {
-      font-family: 'Space Mono', monospace;
-      font-size: 0.6rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--accent2);
-      margin-top: 4px;
-      transition: color 0.2s;
-    }
-
+    .q-index { font-family: 'Space Mono', monospace; font-size: 0.62rem; color: var(--muted); letter-spacing: 0.08em; margin-bottom: 4px; }
+    .q-text { font-family: 'DM Serif Display', serif; font-style: italic; font-size: 1.05rem; line-height: 1.55; color: var(--ink); }
+    .q-expand { font-family: 'Space Mono', monospace; font-size: 0.6rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent2); margin-top: 4px; transition: color 0.2s; }
     .quote-card.open .q-expand { color: var(--accent); }
-
-    .q-reflection {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.4s ease, opacity 0.3s ease;
-      opacity: 0;
-      border-top: 1px solid var(--border);
-      padding-top: 0;
-      margin-top: 0;
-    }
-
-    .quote-card.open .q-reflection {
-      max-height: 400px;
-      opacity: 1;
-      padding-top: 16px;
-      margin-top: 12px;
-    }
-
-    .q-reflection-label {
-      font-family: 'Space Mono', monospace;
-      font-size: 0.6rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 8px;
-    }
-
-    .q-reflection-text {
-      font-size: 0.88rem;
-      color: var(--muted);
-      font-style: italic;
-      line-height: 1.65;
-    }
-
-    /* ── BACK BUTTON ── */
-    .back-row {
-      max-width: 1100px;
-      margin: 0 auto 80px;
-      padding: 0 40px;
-    }
-
-    .back-btn {
-      font-family: 'Space Mono', monospace;
-      font-size: 0.7rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      text-decoration: none;
-      color: var(--ink);
-      border: 1px solid var(--ink);
-      padding: 10px 20px;
-      display: inline-block;
-      transition: background 0.2s, color 0.2s;
-    }
-
+    .q-reflection { max-height: 0; overflow: hidden; transition: max-height 0.4s ease, opacity 0.3s ease; opacity: 0; border-top: 1px solid var(--border); padding-top: 0; margin-top: 0; }
+    .quote-card.open .q-reflection { max-height: 400px; opacity: 1; padding-top: 16px; margin-top: 12px; }
+    .q-reflection-label { font-family: 'Space Mono', monospace; font-size: 0.6rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 8px; }
+    .q-reflection-text { font-size: 0.88rem; color: var(--muted); font-style: italic; line-height: 1.65; }
+    .back-row { max-width: 1100px; margin: 0 auto 80px; padding: 0 40px; }
+    .back-btn { font-family: 'Space Mono', monospace; font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; color: var(--ink); border: 1px solid var(--ink); padding: 10px 20px; display: inline-block; transition: background 0.2s, color 0.2s; }
     .back-btn:hover { background: var(--ink); color: var(--paper); }
-
-    /* ── FOOTER ── */
-    footer {
-      border-top: 1px solid var(--border);
-      padding: 40px;
-      text-align: center;
-      font-family: 'Space Mono', monospace;
-      font-size: 0.65rem;
-      letter-spacing: 0.12em;
-      color: var(--muted);
-      text-transform: uppercase;
-    }
-
+    footer { border-top: 1px solid var(--border); padding: 40px; text-align: center; font-family: 'Space Mono', monospace; font-size: 0.65rem; letter-spacing: 0.12em; color: var(--muted); text-transform: uppercase; }
     @media (max-width: 720px) {
       .site-header, .hero, .section-label, .quotes-grid, .back-row { padding-left: 20px; padding-right: 20px; }
       .quotes-grid { grid-template-columns: 1fr; }
@@ -287,77 +75,61 @@
 </head>
 <body>
 
-  <!-- HEADER -->
-  <header class="site-header">
-    <a class="site-title" href="./index.html">A Passer-by's Guide</a>
-    <nav class="header-nav">
-      <a href="./index.html">← Guide</a>
-    </nav>
-  </header>
+<header class="site-header">
+  <a class="site-title" href="./index.html">A Passer-by's Guide</a>
+  <nav class="header-nav">
+    <a href="./index.html">← All Chapters</a>
+  </nav>
+</header>
 
-  <!-- HERO -->
-  <section class="hero">
-    <div class="hero-eyebrow">Reflections</div>
-    <h1 class="hero-title">Quotes &amp; Reflections</h1>
-    <p class="hero-sub">Click any quote to expand the reflection.</p>
-  </section>
+<section class="hero">
+  <div class="hero-eyebrow">Reflections</div>
+  <h1 class="hero-title">Quotes &amp; Reflections</h1>
+  <p class="hero-sub">Click any quote to expand its reflection.</p>
+</section>
 
-  <!-- LABEL -->
-  <div class="section-label">
-    <span id="quote-count">Loading…</span>
-  </div>
+<div class="section-label"><span id="quote-count">Loading…</span></div>
 
-  <!-- GRID -->
-  <main class="quotes-grid" id="quotes-grid">
-    <div class="loading-msg">Loading quotes…</div>
-  </main>
+<main class="quotes-grid" id="quotes-grid">
+  <div class="loading-msg">Loading quotes…</div>
+</main>
 
-  <!-- BACK -->
-  <div class="back-row">
-    <a href="./index.html" class="back-btn">← Return to the Guide</a>
-  </div>
+<div class="back-row">
+  <a href="./index.html" class="back-btn">← Return to the Guide</a>
+</div>
 
-  <footer>
-    Inspired by Tangerine Dream &nbsp;·&nbsp; Zima Blue &nbsp;·&nbsp; My own genius
-  </footer>
+<footer>Inspired by Tangerine Dream &nbsp;·&nbsp; Zima Blue &nbsp;·&nbsp; My own genius</footer>
 
-  <script>
-    fetch('./quotes.txt')
-      .then(r => { if (!r.ok) throw new Error(); return r.text(); })
-      .then(text => {
-        const quotes = text.split('\n').filter(q => q.trim().length > 0);
-        const grid = document.getElementById('quotes-grid');
-        const countEl = document.getElementById('quote-count');
-
-        countEl.textContent = quotes.length + ' quotes';
-        grid.innerHTML = '';
-
-        quotes.forEach((quote, i) => {
-          const card = document.createElement('div');
-          card.className = 'quote-card';
-          card.innerHTML = `
-            <div class="q-index">#${String(i + 1).padStart(2, '0')}</div>
-            <div class="q-text">\u201c${quote}\u201d</div>
-            <div class="q-expand">+ Reflection</div>
-            <div class="q-reflection">
-              <div class="q-reflection-label">My Reflection</div>
-              <div class="q-reflection-text">Add your personal reflection for this quote here.</div>
-            </div>
-          `;
-          card.addEventListener('click', () => {
-            const isOpen = card.classList.contains('open');
-            card.classList.toggle('open', !isOpen);
-            card.querySelector('.q-expand').textContent = isOpen ? '+ Reflection' : '− Close';
-          });
-          grid.appendChild(card);
+<script>
+  fetch('./quotes.txt')
+    .then(r => { if (!r.ok) throw new Error(); return r.text(); })
+    .then(text => {
+      const quotes = text.split('\n').filter(q => q.trim().length > 0);
+      const grid = document.getElementById('quotes-grid');
+      document.getElementById('quote-count').textContent = quotes.length + ' quotes';
+      grid.innerHTML = '';
+      quotes.forEach((quote, i) => {
+        const card = document.createElement('div');
+        card.className = 'quote-card';
+        card.innerHTML = `
+          <div class="q-index">#${String(i+1).padStart(2,'0')}</div>
+          <div class="q-text">\u201c${quote}\u201d</div>
+          <div class="q-expand">+ Reflection</div>
+          <div class="q-reflection">
+            <div class="q-reflection-label">My Reflection</div>
+            <div class="q-reflection-text">Add your personal reflection for this quote here.</div>
+          </div>`;
+        card.addEventListener('click', () => {
+          const open = card.classList.toggle('open');
+          card.querySelector('.q-expand').textContent = open ? '\u2212 Close' : '+ Reflection';
         });
-      })
-      .catch(() => {
-        document.getElementById('quotes-grid').innerHTML =
-          '<div class="loading-msg">quotes.txt not found — place it in the same directory.</div>';
-        document.getElementById('quote-count').textContent = '0 quotes';
+        grid.appendChild(card);
       });
-  </script>
-
+    })
+    .catch(() => {
+      document.getElementById('quotes-grid').innerHTML = '<div class="loading-msg">quotes.txt not found — place it in the same directory.</div>';
+      document.getElementById('quote-count').textContent = '0 quotes';
+    });
+</script>
 </body>
 </html>
