@@ -35,7 +35,7 @@
     .chapter-title { font-family: 'DM Serif Display', serif; font-size: clamp(2rem, 5vw, 3.2rem); line-height: 1.1; color: var(--ink); margin-bottom: 20px; }
     .chapter-tags { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 18px; }
     .chapter-tags span { font-family: 'Space Mono', monospace; font-size: 0.6rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent2); border: 1px solid var(--accent2); padding: 3px 10px; opacity: 0.7; }
-    .chapter-body { max-width: 760px; margin: 0 auto; padding: 50px 40px 80px; }
+    .chapter-body { max-width: 760px; margin: 0 auto; padding: 50px 40px 20px; }
     .chapter-body p { font-size: 1.05rem; color: var(--ink); line-height: 1.85; margin-bottom: 28px; font-weight: 300; }
     .chapter-body strong { color: var(--accent2); font-weight: 500; }
     .chapter-body em { font-style: italic; }
@@ -44,10 +44,15 @@
       font-size: 1.2rem; color: var(--accent2); border-left: 3px solid var(--accent);
       padding: 4px 0 4px 24px; margin: 36px 0; line-height: 1.65;
     }
+    .chapter-colophon {
+      max-width: 760px; margin: 0 auto;
+      padding: 40px 40px 10px;
+      display: flex; justify-content: center;
+    }
     .chapter-nav {
-      max-width: 760px; margin: 0 auto; padding: 0 40px 80px;
+      max-width: 760px; margin: 0 auto; padding: 40px 40px 80px;
       display: flex; justify-content: space-between; align-items: center;
-      border-top: 1px solid var(--border); padding-top: 40px;
+      border-top: 1px solid var(--border);
       flex-wrap: wrap; gap: 16px;
     }
     .chapter-nav a {
@@ -62,14 +67,13 @@
     .chapter-nav a.disabled { opacity: 0.3; pointer-events: none; }
     footer { border-top: 1px solid var(--border); padding: 40px; text-align: center; font-family: 'Space Mono', monospace; font-size: 0.65rem; letter-spacing: 0.12em; color: var(--muted); text-transform: uppercase; }
     @media (max-width: 720px) {
-      .site-header, .chapter-hero, .chapter-body, .chapter-nav { padding-left: 20px; padding-right: 20px; }
+      .site-header, .chapter-hero, .chapter-body, .chapter-colophon, .chapter-nav { padding-left: 20px; padding-right: 20px; }
       .chapter-hero { margin-top: 40px; }
       footer { padding: 30px 20px; }
     }
 </style>
 </head>
 <body>
-
 <header class="site-header">
   <a class="site-title" href="./index.html">A Passer-by's Guide to Reality</a>
   <nav class="header-nav">
@@ -77,13 +81,11 @@
     <a href="./empty.html">Quotes</a>
   </nav>
 </header>
-
 <section class="chapter-hero">
   <div class="chapter-eyebrow">Chapter #00</div>
   <h1 class="chapter-title">Why the fuss? On "Philosophy, who needs it?"</h1>
   <div class="chapter-tags"><span>Intro</span><span>Ayn Rand</span><span>Foundation</span></div>
 </section>
-
 <article class="chapter-body">
 <p>I have been planning to write this "guide" of sorts as part of my own arsenal of reminders that life is something we must enjoy and master all its facets. I will seek to argue to maintain a healthy balance of your biological self and surrounding abstractions of your reality in the midst of the everything-available-all-at-once phenomenon we are experiencing.</p>
 <p>At present much of your life is <strong>made occupied</strong> by what exactly? Your habits, routines and mental imagery entirely shaped by you, or so we think. Make one logical leap here and we can conclude that during the course of your life your daily routine accounts for most of your actively spent time. Is there an end to this time? Are you happily letting your time go for these routines? What is in it for you? Ever felt frustrated being stuck in doing the same? Well, this blog is definitely not going to help you with that, not unless you want this to help you.</p>
@@ -94,16 +96,20 @@
 <p>Throughout my text, some of my points will need scientific justification so as to not just make this an empty talk, however I am not always going to coin scientific terms as that would make reading this text pretentious and pathetic. In this understanding, think of science as a means to prove that something objectively works, is as described. The solid, known foundations of our physical reality are set and cannot be changed – as per our best knowledge, at the time of writing this – and we all play by the same rules.</p>
 <p>I would also like to emphasize here that these texts in my opinion help the most when considered as a reminder, rather than very strict everyday rules to live by.</p>
 <p>I return to this page when I doubt myself and ponder how and what I should do next... does it make sense?</p>
-<blockquote>Ayn Rand once said that philosophy is often dismissed as useless.. well not owning one philosophy of life definitely renders You useless... most of all to yourself.</blockquote>
+<blockquote>Ayn Rand once said that philosophy is often dismissed as useless — well not owning one philosophy of life definitely renders You useless... most of all to yourself.</blockquote>
 <p>Simply put, this whole blog is my philosophy of life.</p>
 </article>
-
+<div class="chapter-colophon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="-65 -65 130 130" width="180" height="180" style="opacity:0.1;stroke:var(--ink);stroke-linecap:round;stroke-linejoin:round;fill:none;color:var(--ink)"><circle cx="0" cy="0" r="42" stroke-width="1"/>
+    <path d="M-32 0 Q0 -22 32 0 Q0 22 -32 0Z" stroke-width="1.5"/>
+    <circle cx="0" cy="0" r="9" stroke-width="1.5"/>
+    <circle cx="0" cy="0" r="3" fill="currentColor" stroke="none"/>
+    <line x1="-48" y1="0" x2="-36" y2="0" stroke-width="1" opacity="0.6"/>
+    <line x1="36" y1="0" x2="48" y2="0" stroke-width="1" opacity="0.6"/></svg></div>
 <nav class="chapter-nav">
   <a class="disabled" href="#">← Previous</a>
   <a class="home" href="./index.html">All Chapters</a>
   <a href="./chapter-01.html">Chapter 01 →</a>
 </nav>
-
 <footer>Inspired by Tangerine Dream &nbsp;·&nbsp; Zima Blue &nbsp;·&nbsp; My own genius</footer>
 </body>
 </html>

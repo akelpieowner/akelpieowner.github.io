@@ -35,7 +35,7 @@
     .chapter-title { font-family: 'DM Serif Display', serif; font-size: clamp(2rem, 5vw, 3.2rem); line-height: 1.1; color: var(--ink); margin-bottom: 20px; }
     .chapter-tags { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 18px; }
     .chapter-tags span { font-family: 'Space Mono', monospace; font-size: 0.6rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent2); border: 1px solid var(--accent2); padding: 3px 10px; opacity: 0.7; }
-    .chapter-body { max-width: 760px; margin: 0 auto; padding: 50px 40px 80px; }
+    .chapter-body { max-width: 760px; margin: 0 auto; padding: 50px 40px 20px; }
     .chapter-body p { font-size: 1.05rem; color: var(--ink); line-height: 1.85; margin-bottom: 28px; font-weight: 300; }
     .chapter-body strong { color: var(--accent2); font-weight: 500; }
     .chapter-body em { font-style: italic; }
@@ -44,10 +44,15 @@
       font-size: 1.2rem; color: var(--accent2); border-left: 3px solid var(--accent);
       padding: 4px 0 4px 24px; margin: 36px 0; line-height: 1.65;
     }
+    .chapter-colophon {
+      max-width: 760px; margin: 0 auto;
+      padding: 40px 40px 10px;
+      display: flex; justify-content: center;
+    }
     .chapter-nav {
-      max-width: 760px; margin: 0 auto; padding: 0 40px 80px;
+      max-width: 760px; margin: 0 auto; padding: 40px 40px 80px;
       display: flex; justify-content: space-between; align-items: center;
-      border-top: 1px solid var(--border); padding-top: 40px;
+      border-top: 1px solid var(--border);
       flex-wrap: wrap; gap: 16px;
     }
     .chapter-nav a {
@@ -62,14 +67,13 @@
     .chapter-nav a.disabled { opacity: 0.3; pointer-events: none; }
     footer { border-top: 1px solid var(--border); padding: 40px; text-align: center; font-family: 'Space Mono', monospace; font-size: 0.65rem; letter-spacing: 0.12em; color: var(--muted); text-transform: uppercase; }
     @media (max-width: 720px) {
-      .site-header, .chapter-hero, .chapter-body, .chapter-nav { padding-left: 20px; padding-right: 20px; }
+      .site-header, .chapter-hero, .chapter-body, .chapter-colophon, .chapter-nav { padding-left: 20px; padding-right: 20px; }
       .chapter-hero { margin-top: 40px; }
       footer { padding: 30px 20px; }
     }
 </style>
 </head>
 <body>
-
 <header class="site-header">
   <a class="site-title" href="./index.html">A Passer-by's Guide to Reality</a>
   <nav class="header-nav">
@@ -77,13 +81,11 @@
     <a href="./empty.html">Quotes</a>
   </nav>
 </header>
-
 <section class="chapter-hero">
   <div class="chapter-eyebrow">Chapter #01</div>
   <h1 class="chapter-title">Making sense &amp; life's true metrics: energy, frequency, vibration, scarcity</h1>
   <div class="chapter-tags"><span>Emotional discipline</span><span>Utility</span><span>Energy</span></div>
 </section>
-
 <article class="chapter-body">
 <p>In this chapter we will be focusing what I refer to as <strong>the tyranny of the irrational.</strong></p>
 <p>For the longest time our actions have been impacted by our awareness and outcomes of these actions…</p>
@@ -92,13 +94,13 @@
 <p>The question you should be asking yourself is... am I repeating leisure activities that keep me feeling good? Or do I randomly stumble upon myself thinking... "Hey I am doing this again and I feel bad about that.."? What I would suggest you do is try to keep your mental projections empty, don't wander off into emotional spirals, keep it simple, keep it focused. Try to imagine nothing and go from there. Projections never help.</p>
 <p>What does help is an alignment of your time, energy and frequencies of your actionable interests. Doing something without justification is just self-inflicted martyrdom. So what does one do to escape the trap of that martyrdom? Practice <strong>emotional discipline.</strong></p>
 </article>
-
+<div class="chapter-colophon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="-65 -65 130 130" width="180" height="180" style="opacity:0.1;stroke:var(--ink);stroke-linecap:round;stroke-linejoin:round;fill:none;color:var(--ink)"><path d="M0,-40 A40,40 0 1,1 -40,0 A28,28 0 1,1 0,-28 A16,16 0 1,1 -16,0 A7,7 0 1,1 0,-7" stroke-width="1.4" fill="none"/>
+    <circle cx="0" cy="0" r="2.5" fill="currentColor" stroke="none"/></svg></div>
 <nav class="chapter-nav">
   <a href="./chapter-00.html">← Chapter 00</a>
   <a class="home" href="./index.html">All Chapters</a>
   <a href="./chapter-02.html">Chapter 02 →</a>
 </nav>
-
 <footer>Inspired by Tangerine Dream &nbsp;·&nbsp; Zima Blue &nbsp;·&nbsp; My own genius</footer>
 </body>
 </html>

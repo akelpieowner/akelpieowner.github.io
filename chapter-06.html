@@ -35,7 +35,7 @@
     .chapter-title { font-family: 'DM Serif Display', serif; font-size: clamp(2rem, 5vw, 3.2rem); line-height: 1.1; color: var(--ink); margin-bottom: 20px; }
     .chapter-tags { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 18px; }
     .chapter-tags span { font-family: 'Space Mono', monospace; font-size: 0.6rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent2); border: 1px solid var(--accent2); padding: 3px 10px; opacity: 0.7; }
-    .chapter-body { max-width: 760px; margin: 0 auto; padding: 50px 40px 80px; }
+    .chapter-body { max-width: 760px; margin: 0 auto; padding: 50px 40px 20px; }
     .chapter-body p { font-size: 1.05rem; color: var(--ink); line-height: 1.85; margin-bottom: 28px; font-weight: 300; }
     .chapter-body strong { color: var(--accent2); font-weight: 500; }
     .chapter-body em { font-style: italic; }
@@ -44,10 +44,15 @@
       font-size: 1.2rem; color: var(--accent2); border-left: 3px solid var(--accent);
       padding: 4px 0 4px 24px; margin: 36px 0; line-height: 1.65;
     }
+    .chapter-colophon {
+      max-width: 760px; margin: 0 auto;
+      padding: 40px 40px 10px;
+      display: flex; justify-content: center;
+    }
     .chapter-nav {
-      max-width: 760px; margin: 0 auto; padding: 0 40px 80px;
+      max-width: 760px; margin: 0 auto; padding: 40px 40px 80px;
       display: flex; justify-content: space-between; align-items: center;
-      border-top: 1px solid var(--border); padding-top: 40px;
+      border-top: 1px solid var(--border);
       flex-wrap: wrap; gap: 16px;
     }
     .chapter-nav a {
@@ -62,14 +67,13 @@
     .chapter-nav a.disabled { opacity: 0.3; pointer-events: none; }
     footer { border-top: 1px solid var(--border); padding: 40px; text-align: center; font-family: 'Space Mono', monospace; font-size: 0.65rem; letter-spacing: 0.12em; color: var(--muted); text-transform: uppercase; }
     @media (max-width: 720px) {
-      .site-header, .chapter-hero, .chapter-body, .chapter-nav { padding-left: 20px; padding-right: 20px; }
+      .site-header, .chapter-hero, .chapter-body, .chapter-colophon, .chapter-nav { padding-left: 20px; padding-right: 20px; }
       .chapter-hero { margin-top: 40px; }
       footer { padding: 30px 20px; }
     }
 </style>
 </head>
 <body>
-
 <header class="site-header">
   <a class="site-title" href="./index.html">A Passer-by's Guide to Reality</a>
   <nav class="header-nav">
@@ -77,25 +81,34 @@
     <a href="./empty.html">Quotes</a>
   </nav>
 </header>
-
 <section class="chapter-hero">
   <div class="chapter-eyebrow">Chapter #06</div>
   <h1 class="chapter-title">"The world you desire can be won."</h1>
   <div class="chapter-tags"><span>Mantras</span><span>Atlas Shrugged</span><span>John Galt</span></div>
 </section>
-
 <article class="chapter-body">
 <p>This section is filled with mantras, ideas and thoughts worth returning to when in doubt.</p>
 <blockquote>"The world you desire can be won. It exists, it is real, it is possible, it is yours." — John Galt, Atlas Shrugged</blockquote>
 <p>From Atlas here to Dagny, John Galt, Dostoyevsky — this chapter is a living collection. Return here when you need to remember why you started.</p>
 </article>
-
+<div class="chapter-colophon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="-65 -65 130 130" width="180" height="180" style="opacity:0.1;stroke:var(--ink);stroke-linecap:round;stroke-linejoin:round;fill:none;color:var(--ink)"><line x1="0" y1="-30" x2="0" y2="30" stroke-width="1.6"/>
+    <path d="M0,-30 Q-36,-24 -38,0 Q-36,24 0,30" stroke-width="1.2"/>
+    <path d="M0,-30 Q36,-24 38,0 Q36,24 0,30" stroke-width="1.2"/>
+    <line x1="-28" y1="-14" x2="-8" y2="-14" stroke-width="0.7" opacity="0.5"/>
+    <line x1="-30" y1="-5"  x2="-8" y2="-5"  stroke-width="0.7" opacity="0.5"/>
+    <line x1="-29" y1="4"   x2="-8" y2="4"   stroke-width="0.7" opacity="0.5"/>
+    <line x1="-26" y1="13"  x2="-8" y2="13"  stroke-width="0.7" opacity="0.5"/>
+    <line x1="8" y1="13"  x2="28" y2="13"  stroke-width="0.7" opacity="0.5"/>
+    <line x1="8" y1="4"   x2="30" y2="-4"  stroke-width="0.7" opacity="0.6"/>
+    <line x1="8" y1="-5"  x2="30" y2="-18" stroke-width="0.7" opacity="0.7"/>
+    <line x1="8" y1="-14" x2="28" y2="-34" stroke-width="0.9" opacity="0.9"/>
+    <circle cx="28" cy="-34" r="2" fill="currentColor" stroke="none"/>
+    <circle cx="30" cy="-18" r="1.5" fill="currentColor" stroke="none" opacity="0.7"/></svg></div>
 <nav class="chapter-nav">
   <a href="./chapter-03.html">← Chapter 03</a>
   <a class="home" href="./index.html">All Chapters</a>
   <a href="./chapter-07.html">Chapter 07 →</a>
 </nav>
-
 <footer>Inspired by Tangerine Dream &nbsp;·&nbsp; Zima Blue &nbsp;·&nbsp; My own genius</footer>
 </body>
 </html>
